@@ -838,13 +838,13 @@ footer{background:var(--darker);padding:44px 80px;display:flex;align-items:cente
           <!-- Stap 1: e-mail altijd zichtbaar -->
           <div class="contact-field contact-field-full">
             <label>E-mailadres</label>
-            <input id="f-email" type="email" placeholder="naam@bedrijf.nl" autocomplete="email" name="email" oninput="formReveal()">
+            <input id="f-email" type="email" placeholder="naam@bedrijf.nl" autocomplete="email" name="email" onblur="formReveal()">
           </div>
 
           <!-- Stap 2: voornaam -->
           <div class="contact-field contact-field-full form-step" id="step-voornaam" style="display:none">
             <label>Voornaam</label>
-            <input id="f-voornaam" type="text" placeholder="Voornaam" autocomplete="given-name" name="voornaam" oninput="formReveal()">
+            <input id="f-voornaam" type="text" placeholder="Voornaam" autocomplete="given-name" name="voornaam" onblur="formReveal()">
           </div>
 
           <!-- Stap 3: tussenvoegsel + achternaam -->
@@ -854,7 +854,7 @@ footer{background:var(--darker);padding:44px 80px;display:flex;align-items:cente
           </div>
           <div class="contact-field form-step" id="step-achternaam" style="display:none">
             <label>Achternaam</label>
-            <input id="f-achternaam" type="text" placeholder="Achternaam" autocomplete="family-name" name="achternaam" oninput="formReveal()">
+            <input id="f-achternaam" type="text" placeholder="Achternaam" autocomplete="family-name" name="achternaam" onblur="formReveal()">
           </div>
 
           <!-- Stap 4: telefoon + regio + submit -->
