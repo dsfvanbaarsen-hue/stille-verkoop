@@ -160,7 +160,7 @@ tr:last-child td{border:none}
 .calc-field select:focus,.calc-field input:focus{border-color:var(--red)}
 .calc-full{grid-column:1/-1}
 .range-display{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink);margin-bottom:8px}
-input[type=range]{width:100%;height:2px;-webkit-appearance:none;appearance:none;background:var(--border);border-radius:2px;outline:none;margin-top:4px}
+input[type=range]{width:100%;height:2px;-webkit-appearance:none;appearance:none;background:var(--border);border-radius:2px;outline:none;margin-top:4px;cursor:pointer}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--red);border-radius:50%;cursor:pointer;border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.18)}
 .calc-result{background:var(--darker);padding:40px 48px;display:block}
 .result-row{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;margin-bottom:28px}
@@ -414,11 +414,11 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 .stepper-btn:last-child{border-radius:0 var(--r) var(--r) 0;border-left:none}
 .stepper-btn:hover{background:var(--paper)}
 .stepper-btn:active{background:var(--border)}
-.stepper-display{flex:1;background:#fff;border:1px solid var(--border);padding:14px 12px;font-family:var(--serif);font-size:28px;font-weight:400;color:var(--ink);text-align:center;line-height:1}
+.stepper-display{flex:1;background:#fff;border:1px solid var(--border);padding:12px 10px;font-family:var(--serif);font-size:24px;font-weight:400;color:var(--ink);text-align:center;line-height:1}
 .stepper-hint{font-size:12px;color:var(--fog);margin-bottom:8px}
 .stepper-minmax{display:flex;justify-content:space-between;font-size:11px;color:var(--fog);margin-top:6px}
 /* Override range slider for hero form (light bg) */
-.hero-form input[type=range],.calc-body input[type=range]{height:3px;background:var(--border);margin-top:0}
+.hero-form input[type=range],.calc-body input[type=range]{height:2px;margin-top:0}
 .hero-form input[type=range]::-webkit-slider-thumb,.calc-body input[type=range]::-webkit-slider-thumb{width:24px;height:24px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 </style>
 </head>
@@ -492,9 +492,9 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
       </select>
     </div>
 
-    <div style="background:var(--darker);border-radius:var(--r);padding:18px 20px;margin-bottom:16px">
-      <p style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,236,228,.35);margin-bottom:6px">Indicatieve marktwaarde</p>
-      <div id="h-output" style="font-family:var(--serif);font-size:28px;font-weight:400;color:var(--cream);line-height:1">€ 1,0M – € 1,4M</div>
+    <div style="margin-bottom:16px;padding:0 0 16px;border-bottom:1px solid var(--border)">
+      <p style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--fog);margin-bottom:6px">Indicatieve marktwaarde</p>
+      <div id="h-output" style="font-family:var(--serif);font-size:32px;font-weight:400;color:var(--ink);line-height:1">€ 1,0M – € 1,4M</div>
     </div>
 
     <button class="btn-red" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Ontvang voorstel op maat →</button>
@@ -954,15 +954,21 @@ const MAX_HUUR = 1000000;
 
 function fmtHuur(v){return '€ '+Number(v).toLocaleString('nl')}
 
+function fillSlider(el){
+  const pct = ((el.value - el.min) / (el.max - el.min)) * 100;
+  el.style.background = `linear-gradient(to right, var(--red) ${pct}%, var(--border) ${pct}%)`;
+}
 function syncHuur(prefix){
-  const val = parseInt(document.getElementById(prefix+'-huur').value);
+  const el = document.getElementById(prefix+'-huur');
+  const val = parseInt(el.value);
   document.getElementById(prefix+'-huur-disp').textContent = fmtHuur(val);
+  fillSlider(el);
   prefix==='h' ? heroCalc() : calcRun();
 }
 
 function stepHuur(prefix, dir){
   const el = document.getElementById(prefix+'-huur');
-  let val = parseInt(el.value) + dir * STEP * 10;
+  let val = parseInt(el.value) + dir * STEP;
   val = Math.max(0, Math.min(MAX_HUUR, Math.round(val/STEP)*STEP));
   el.value = val;
   syncHuur(prefix);
@@ -1113,7 +1119,7 @@ function toggleStep(btn){
     btn.querySelector('.acc-icon').textContent='−';
   }
 }
-heroCalc();calcRun();
+heroCalc();calcRun();fillSlider(document.getElementById("h-huur"));fillSlider(document.getElementById("c-huur"));
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});},{threshold:.12});
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 </script>
