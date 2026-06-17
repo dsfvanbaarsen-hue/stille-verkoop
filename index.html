@@ -160,7 +160,7 @@ tr:last-child td{border:none}
 .calc-field select:focus,.calc-field input:focus{border-color:var(--red)}
 .calc-full{grid-column:1/-1}
 .range-display{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink);margin-bottom:8px}
-input[type=range]{width:100%;height:2px;-webkit-appearance:none;appearance:none;background:var(--border);border-radius:2px;outline:none;margin-top:4px;cursor:pointer}
+input[type=range]{width:100%;height:2px;-webkit-appearance:none;appearance:none;background:linear-gradient(to right,var(--red) var(--pct,7%),var(--border) var(--pct,7%));border-radius:2px;outline:none;margin-top:4px;cursor:pointer}
 input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--red);border-radius:50%;cursor:pointer;border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.18)}
 .calc-result{background:var(--darker);padding:40px 48px;display:block}
 .result-row{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;margin-bottom:28px}
@@ -956,7 +956,7 @@ function fmtHuur(v){return '€ '+Number(v).toLocaleString('nl')}
 
 function fillSlider(el){
   const pct = ((el.value - el.min) / (el.max - el.min)) * 100;
-  el.style.background = `linear-gradient(to right, var(--red) ${pct}%, var(--border) ${pct}%)`;
+  el.style.setProperty('--pct', pct.toFixed(1) + '%');
 }
 function syncHuur(prefix){
   const el = document.getElementById(prefix+'-huur');
