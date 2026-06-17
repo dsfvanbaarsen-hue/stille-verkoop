@@ -160,8 +160,8 @@ tr:last-child td{border:none}
 .calc-field select:focus,.calc-field input:focus{border-color:var(--red)}
 .calc-full{grid-column:1/-1}
 .range-display{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink);margin-bottom:8px}
-input[type=range]{width:100%;height:4px;-webkit-appearance:none;appearance:none;background:linear-gradient(to right,#B8976A var(--pct,7%),#E8DDD0 var(--pct,7%));border-radius:4px;outline:none;border:none;margin:16px 0 4px;cursor:pointer}input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:transparent}input[type=range]::-moz-range-track{height:4px;border-radius:4px;background:#E8DDD0}input[type=range]::-moz-range-progress{height:4px;border-radius:4px;background:#B8976A}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:38px;height:38px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='8' y='7' width='3' height='10' rx='1.5' fill='%23B8976A'/%3E%3Crect x='13' y='7' width='3' height='10' rx='1.5' fill='%23B8976A'/%3E%3C/svg%3E") center/18px no-repeat;border-radius:50%;cursor:pointer;border:2px solid #B8976A;box-shadow:0 2px 8px rgba(0,0,0,.12);margin-top:-17px}input[type=range]::-moz-range-thumb{width:36px;height:36px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='8' y='7' width='3' height='10' rx='1.5' fill='%23B8976A'/%3E%3Crect x='13' y='7' width='3' height='10' rx='1.5' fill='%23B8976A'/%3E%3C/svg%3E") center/18px no-repeat;border-radius:50%;cursor:pointer;border:2px solid #B8976A;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+input[type=range]{width:100%;height:40px;-webkit-appearance:none;appearance:none;background:transparent;border:none;outline:none;cursor:pointer;padding:0;margin:8px 0}input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:linear-gradient(to right,#B8976A var(--pct,7%),#E8DDD0 var(--pct,7%))}input[type=range]::-moz-range-track{height:4px;border-radius:4px;background:#E8DDD0;border:none}input[type=range]::-moz-range-progress{height:4px;border-radius:4px;background:#B8976A}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:36px;height:36px;background:#fff;border-radius:50%;cursor:pointer;border:2px solid #B8976A;box-shadow:0 2px 8px rgba(0,0,0,.12);margin-top:-16px}input[type=range]::-moz-range-thumb{width:34px;height:34px;background:#fff;border-radius:50%;cursor:pointer;border:2px solid #B8976A;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 .calc-result{background:var(--darker);padding:40px 48px;display:block}
 .result-row{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;margin-bottom:28px}
 .result-tag{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
@@ -966,7 +966,13 @@ function fmtHuur(v){return '€ '+Number(v).toLocaleString('nl')}
 
 function fillSlider(el){
   const pct = ((el.value - el.min) / (el.max - el.min)) * 100;
-  el.style.setProperty('--pct', pct.toFixed(1) + '%');
+  const p = pct.toFixed(1) + '%';
+  el.style.setProperty('--pct', p);
+  // Guarantee fill on WebKit pseudo-element via dynamic style
+  let sid = 'slider-fill-' + el.id;
+  let s = document.getElementById(sid);
+  if(!s){s=document.createElement('style');s.id=sid;document.head.appendChild(s);}
+  s.textContent = '#'+el.id+'::-webkit-slider-runnable-track{background:linear-gradient(to right,#B8976A '+p+',#E8DDD0 '+p+')}';
 }
 function syncHuur(prefix){
   const el = document.getElementById(prefix+'-huur');
