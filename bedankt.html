@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bedankt voor uw aanvraag | Van Baarsen Vastgoed</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --ink:#111009;
+  --dark:#181614;
+  --darker:#0f0e0c;
+  --red:#c0392b;
+  --red-lt:#d9534f;
+  --cream:#f0ece4;
+  --stone:#5a5650;
+  --fog:#9a9590;
+  --border:#d8d2c8;
+  --serif:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --r:3px;
+}
+html,body{height:100%;font-family:var(--sans);background:var(--darker);color:var(--cream);overflow-x:hidden}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--darker);border-bottom:1px solid rgba(255,255,255,.07);height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 48px}
+.logo-wrap{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo-wordmark{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--cream);letter-spacing:.04em}
+
+/* MAIN */
+main{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+main::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(192,57,43,.07) 0%,transparent 65%);pointer-events:none}
+
+.card{max-width:600px;width:100%;text-align:center;position:relative;z-index:1}
+
+.check-wrap{width:72px;height:72px;border-radius:50%;border:1px solid rgba(192,57,43,.3);display:flex;align-items:center;justify-content:center;margin:0 auto 36px}
+.check-wrap svg{color:var(--red)}
+
+.eyebrow{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:10px}
+.eyebrow::before,.eyebrow::after{content:'';width:24px;height:1px;background:var(--red)}
+
+h1{font-family:var(--serif);font-size:clamp(38px,5vw,64px);font-weight:400;line-height:1.05;color:var(--cream);margin-bottom:20px}
+h1 em{font-style:italic;color:rgba(240,236,228,.55)}
+
+.sub{font-size:16px;font-weight:300;color:rgba(240,236,228,.5);line-height:1.8;max-width:460px;margin:0 auto 48px}
+
+.steps{display:flex;flex-direction:column;gap:0;border:1px solid rgba(255,255,255,.07);border-radius:4px;overflow:hidden;margin-bottom:48px;text-align:left}
+.step{display:flex;align-items:flex-start;gap:20px;padding:20px 24px;border-bottom:1px solid rgba(255,255,255,.06)}
+.step:last-child{border-bottom:none}
+.step-num{font-family:var(--serif);font-size:28px;font-weight:400;color:rgba(192,57,43,.4);line-height:1;flex-shrink:0;width:28px}
+.step-text h3{font-size:13px;font-weight:600;color:var(--cream);margin-bottom:3px}
+.step-text p{font-size:13px;color:rgba(240,236,228,.4);line-height:1.6}
+
+.actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn-red{background:var(--red);color:#fff;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:none;padding:16px 32px;cursor:pointer;border-radius:var(--r);transition:background .2s;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-red:hover{background:var(--red-lt)}
+.btn-ghost{background:transparent;color:rgba(240,236,228,.7);font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:1px solid rgba(255,255,255,.15);padding:16px 32px;border-radius:var(--r);text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s}
+.btn-ghost:hover{border-color:rgba(255,255,255,.35);color:var(--cream)}
+
+.divider{width:40px;height:1px;background:rgba(255,255,255,.08);margin:48px auto}
+
+.contact-direct{font-size:13px;color:rgba(240,236,228,.3);line-height:2}
+.contact-direct a{color:rgba(240,236,228,.55);text-decoration:none;transition:color .2s}
+.contact-direct a:hover{color:var(--cream)}
+
+/* FOOTER */
+footer{background:var(--darker);border-top:1px solid rgba(255,255,255,.06);padding:24px 48px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.footer-copy{font-size:11px;color:rgba(240,236,228,.2);letter-spacing:.04em}
+
+@media(max-width:600px){
+  nav{padding:0 24px}
+  footer{padding:20px 24px;flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo-wrap" href="https://vanbaarsen.nl">
+    <span class="logo-wordmark">Van Baarsen Vastgoed</span>
+  </a>
+  <a href="https://vanbaarsen.nl" style="font-size:11px;font-weight:500;color:rgba(240,236,228,.35);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s" onmouseover="this.style.color='rgba(240,236,228,.8)'" onmouseout="this.style.color='rgba(240,236,228,.35)'">← Terug naar website</a>
+</nav>
+
+<main>
+  <div class="card">
+
+    <div class="check-wrap">
+      <svg width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5"/>
+      </svg>
+    </div>
+
+    <p class="eyebrow">Aanvraag ontvangen</p>
+    <h1>Bedankt voor<br>uw <em>vertrouwen.</em></h1>
+    <p class="sub">Uw aanvraag is in goede orde ontvangen. Wij nemen zo spoedig mogelijk contact met u op — vertrouwelijk en volledig vrijblijvend.</p>
+
+    <div class="actions">
+      <a href="https://vanbaarsen.nl" class="btn-red">← Terug naar website</a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <span class="footer-copy">© 2025 Van Baarsen Vastgoed · KVK 12345678 · Alle rechten voorbehouden</span>
+  <span class="footer-copy">AVG-conform · Strikt vertrouwelijk</span>
+</footer>
+
+</body>
+</html>
