@@ -406,6 +406,20 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
   td:nth-child(3){color:rgba(240,236,228,.45)}
   td:nth-child(3)::before{content:'Openbaar';font-size:8px;font-weight:700;letter-spacing:.1em;color:rgba(240,236,228,.2);display:block;margin-bottom:2px}
 }
+
+/* ── STEPPER SLIDER ───────────────────────────────────── */
+.stepper-row{display:flex;align-items:stretch;gap:0;margin-bottom:12px}
+.stepper-btn{width:52px;background:var(--cream);border:1px solid var(--border);color:var(--ink);font-size:22px;font-weight:300;cursor:pointer;transition:background .15s;flex-shrink:0;border-radius:var(--r)}
+.stepper-btn:first-child{border-radius:var(--r) 0 0 var(--r);border-right:none}
+.stepper-btn:last-child{border-radius:0 var(--r) var(--r) 0;border-left:none}
+.stepper-btn:hover{background:var(--paper)}
+.stepper-btn:active{background:var(--border)}
+.stepper-display{flex:1;background:#fff;border:1px solid var(--border);padding:14px 12px;font-family:var(--serif);font-size:28px;font-weight:400;color:var(--ink);text-align:center;line-height:1}
+.stepper-hint{font-size:12px;color:var(--fog);margin-bottom:8px}
+.stepper-minmax{display:flex;justify-content:space-between;font-size:11px;color:var(--fog);margin-top:6px}
+/* Override range slider for hero form (light bg) */
+.hero-form input[type=range],.calc-body input[type=range]{height:3px;background:var(--border);margin-top:0}
+.hero-form input[type=range]::-webkit-slider-thumb,.calc-body input[type=range]::-webkit-slider-thumb{width:24px;height:24px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
 </style>
 </head>
 <body>
@@ -455,9 +469,15 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 
     <div class="field">
       <label>Jaarhuur</label>
-      <div class="range-display" id="h-huur-disp" style="font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink);margin-bottom:4px">€ 69.000</div>
-      <input type="range" id="h-huur" min="15000" max="1500000" step="5000" value="69000"
-        oninput="document.getElementById('h-huur-disp').textContent='€ '+Number(this.value).toLocaleString('nl');heroCalc()">
+      <div class="stepper-row">
+        <button class="stepper-btn" onclick="stepHuur('h',-1)" aria-label="Minder">−</button>
+        <div class="stepper-display" id="h-huur-disp">€ 69.000</div>
+        <button class="stepper-btn" onclick="stepHuur('h',1)" aria-label="Meer">+</button>
+      </div>
+      <p class="stepper-hint">Of versleep voor de fijnafstelling</p>
+      <input type="range" id="h-huur" min="0" max="1000000" step="2500" value="69000"
+        oninput="syncHuur('h')">
+      <div class="stepper-minmax"><span>€ 0</span><span>€ 1.000.000</span></div>
     </div>
 
     <div class="field" style="margin-bottom:13px">
@@ -621,9 +641,15 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
           <div class="calc-field"><label>Locatie</label><select id="c-regio" onchange="calcRun()"><option value="">— selecteer —</option><option value="a">Randstad — A-locatie</option><option value="b">Grote stad — B-locatie</option><option value="c">Middelgrote stad / regio</option><option value="d">Buiten stedelijk gebied</option></select></div>
           <div class="calc-field calc-full">
             <label>Jaarhuur</label>
-            <div class="range-display" id="c-huur-disp">€ 69.000</div>
-            <input type="range" id="c-huur" min="15000" max="1500000" step="5000" value="69000"
-              oninput="document.getElementById('c-huur-disp').textContent='€ '+Number(this.value).toLocaleString('nl');calcRun()">
+            <div class="stepper-row">
+              <button class="stepper-btn" onclick="stepHuur('c',-1)" aria-label="Minder">−</button>
+              <div class="stepper-display" id="c-huur-disp">€ 69.000</div>
+              <button class="stepper-btn" onclick="stepHuur('c',1)" aria-label="Meer">+</button>
+            </div>
+            <p class="stepper-hint">Of versleep voor de fijnafstelling</p>
+            <input type="range" id="c-huur" min="0" max="1000000" step="2500" value="69000"
+              oninput="syncHuur('c')">
+            <div class="stepper-minmax"><span>€ 0</span><span>€ 1.000.000</span></div>
           </div>
         </div>
       </div>
@@ -922,6 +948,26 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 </footer>
 
 <script>
+
+const STEP = 2500;
+const MAX_HUUR = 1000000;
+
+function fmtHuur(v){return '€ '+Number(v).toLocaleString('nl')}
+
+function syncHuur(prefix){
+  const val = parseInt(document.getElementById(prefix+'-huur').value);
+  document.getElementById(prefix+'-huur-disp').textContent = fmtHuur(val);
+  prefix==='h' ? heroCalc() : calcRun();
+}
+
+function stepHuur(prefix, dir){
+  const el = document.getElementById(prefix+'-huur');
+  let val = parseInt(el.value) + dir * STEP * 10;
+  val = Math.max(0, Math.min(MAX_HUUR, Math.round(val/STEP)*STEP));
+  el.value = val;
+  syncHuur(prefix);
+}
+
 function toggleNav(){
   const menu=document.getElementById('nav-mobile-menu');
   const btn=document.getElementById('nav-hamburger');
