@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MADA TIMES — One Year Later</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Cormorant+SC:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --coral:   #e8907a;
+      --coral-l: #f2b8a8;
+      --coral-d: #c86b55;
+      --navy:    #1c2d5e;
+      --navy-l:  #2e4080;
+      --white:   #ffffff;
+      --cream:   #fdf9f6;
+      --rule:    #1c2d5e;
+      --cta-h:   68px;
+    }
+
+    body {
+      background: var(--coral-l);
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: var(--navy);
+      line-height: 1.6;
+      padding-bottom: var(--cta-h);
+    }
+
+    /* ══════════════════════════════
+       STICKY CTA
+    ══════════════════════════════ */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: var(--cta-h);
+      background: var(--coral);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.4rem;
+      z-index: 100;
+      border-top: 2px solid var(--navy);
+      padding: 0 1rem;
+    }
+
+    .sticky-cta-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--white);
+      font-size: 1rem;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+    }
+
+    .sticky-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--navy);
+      color: var(--white);
+      font-family: 'Cormorant SC', serif;
+      font-weight: 600;
+      font-size: 0.95rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.6rem 1.8rem;
+      border: 2px solid var(--navy);
+      white-space: nowrap;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .sticky-cta-btn:hover {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    /* ══════════════════════════════
+       NEWSPAPER
+    ══════════════════════════════ */
+    .newspaper {
+      max-width: 960px;
+      margin: 1.5rem auto;
+      background: var(--white);
+      box-shadow: 0 8px 40px rgba(28,45,94,0.18);
+      border: 1px solid var(--coral-l);
+    }
+
+    /* ── Masthead ── */
+    .masthead {
+      background: var(--coral);
+      padding: 1.2rem 1.5rem 1rem;
+    }
+
+    .masthead-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      border-bottom: 1px solid rgba(255,255,255,0.4);
+      padding-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+    }
+
+    .masthead-monogram {
+      text-align: center;
+      font-family: 'Cormorant SC', serif;
+      font-weight: 700;
+      font-size: clamp(1.2rem, 3vw, 1.6rem);
+      letter-spacing: 0.3em;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+
+    .masthead-title {
+      text-align: center;
+      font-family: 'Cormorant SC', serif;
+      font-weight: 700;
+      font-size: clamp(2.8rem, 9vw, 6rem);
+      line-height: 1;
+      color: var(--white);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.2rem;
+    }
+
+    .masthead-ornament {
+      text-align: center;
+      color: rgba(255,255,255,0.6);
+      font-size: 0.9rem;
+      letter-spacing: 0.5em;
+      margin: 0.3rem 0;
+    }
+
+    .masthead-subtitle {
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(0.8rem, 2vw, 1rem);
+      color: rgba(255,255,255,0.85);
+      letter-spacing: 0.08em;
+      border-top: 1px solid rgba(255,255,255,0.35);
+      padding-top: 0.4rem;
+      margin-top: 0.2rem;
+    }
+
+    /* ── Hero ── */
+    .hero-photo {
+      width: 100%;
+      height: clamp(200px, 36vw, 380px);
+      object-fit: cover;
+      object-position: center 35%;
+      display: block;
+    }
+
+    .photo-caption {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.75rem;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      padding: 0.3rem 1rem;
+      background: var(--navy);
+    }
+
+    /* ── Banner ── */
+    .banner {
+      padding: 1.3rem 1.5rem 1.1rem;
+      border-bottom: 2px solid var(--navy);
+      border-top: 2px solid var(--navy);
+    }
+
+    .banner-kicker {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--coral);
+      margin-bottom: 0.35rem;
+    }
+
+    .banner-headline {
+      font-family: 'Cormorant SC', serif;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 5vw, 3.2rem);
+      line-height: 1.05;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.02em;
+    }
+
+    .banner-deck {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      line-height: 1.55;
+      color: var(--navy-l);
+      border-top: 1px solid var(--coral-l);
+      padding-top: 0.5rem;
+    }
+
+    /* ── Letter ── */
+    .letter-box {
+      background: var(--cream);
+      border-top: 3px solid var(--coral);
+      border-bottom: 3px solid var(--coral);
+      padding: 1.4rem 1.5rem;
+      position: relative;
+    }
+
+    .letter-box::before,
+    .letter-box::after {
+      content: '◆';
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--coral-l);
+      font-size: 1.2rem;
+    }
+
+    .letter-box::before { left: 0.5rem; }
+    .letter-box::after  { right: 0.5rem; }
+
+    .letter-salutation {
+      font-family: 'Cormorant SC', serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-bottom: 0.7rem;
+      letter-spacing: 0.06em;
+    }
+
+    .letter-body {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.08rem);
+      line-height: 1.65;
+      color: var(--navy);
+    }
+
+    .letter-body p { margin-bottom: 0.55rem; }
+
+    .pull-quote-inline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      text-align: center;
+      color: var(--coral-d);
+      border-top: 1px solid var(--coral-l);
+      border-bottom: 1px solid var(--coral-l);
+      padding: 0.55rem 1rem;
+      margin: 0.8rem 0;
+    }
+
+    .letter-signoff {
+      font-family: 'Cormorant SC', serif;
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--navy);
+      margin-top: 0.6rem;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── Date strip ── */
+    .date-strip {
+      display: flex;
+      background: var(--navy);
+      border-bottom: 2px solid var(--coral);
+    }
+
+    .date-item {
+      flex: 1;
+      text-align: center;
+      padding: 0.6rem 0.5rem;
+      border-right: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+    }
+
+    .date-item:last-child { border-right: none; }
+
+    .date-num {
+      font-family: 'Cormorant SC', serif;
+      font-weight: 700;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      color: var(--coral);
+      line-height: 1;
+    }
+
+    .date-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.7);
+      margin-top: 0.1rem;
+    }
+
+    .date-event {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.85);
+      margin-top: 0.1rem;
+    }
+
+    /* ── Content grid ── */
+    .content {
+      display: grid;
+      grid-template-columns: 1.1fr 1px 1fr 1px 0.9fr;
+      padding: 1.3rem 0 1rem;
+    }
+
+    .col-divider { background: var(--coral-l); margin: 0 0.8rem; }
+
+    .col { padding: 0 1.2rem; }
+    .col:first-child { padding-left: 1.5rem; }
+    .col:last-child  { padding-right: 1.5rem; }
+
+    /* ── Typography ── */
+    h2 {
+      font-family: 'Cormorant SC', serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      color: var(--navy);
+      border-top: 2px solid var(--navy);
+      border-bottom: 1px solid var(--coral-l);
+      padding: 0.3rem 0;
+      margin: 1rem 0 0.6rem;
+    }
+
+    h2:first-child { margin-top: 0; }
+
+    p {
+      font-size: 1rem;
+      text-align: justify;
+      hyphens: auto;
+      margin-bottom: 0.55rem;
+      color: var(--navy);
+    }
+
+    .dropcap::first-letter {
+      font-family: 'Cormorant SC', serif;
+      font-size: 4em;
+      font-weight: 700;
+      float: left;
+      line-height: 0.78;
+      margin: 0.05em 0.08em 0 0;
+      color: var(--coral);
+    }
+
+    .byline {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--coral-d);
+      margin-bottom: 0.8rem;
+      border-bottom: 1px solid var(--coral-l);
+      padding-bottom: 0.35rem;
+    }
+
+    .pull-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      line-height: 1.45;
+      text-align: center;
+      border-top: 2px solid var(--coral);
+      border-bottom: 2px solid var(--coral);
+      padding: 0.7rem 0.3rem;
+      margin: 0.9rem 0;
+      color: var(--coral-d);
+    }
+
+    .event {
+      margin-bottom: 0.85rem;
+      border-left: 3px solid var(--coral);
+      padding-left: 0.6rem;
+    }
+
+    .event-title {
+      font-family: 'Cormorant SC', serif;
+      font-weight: 600;
+      font-size: 0.88rem;
+      letter-spacing: 0.06em;
+      color: var(--navy);
+    }
+
+    .event-meta {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: var(--coral-d);
+      margin-bottom: 0.15rem;
+    }
+
+    .event p { font-size: 0.88rem; text-align: left; margin-bottom: 0; color: var(--navy-l); }
+
+    .inline-photo {
+      width: 100%;
+      display: block;
+      margin: 0.7rem 0 0.2rem;
+      object-fit: cover;
+    }
+
+    .cap {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.72rem;
+      color: var(--coral-d);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.03em;
+    }
+
+    .ornament {
+      text-align: center;
+      color: var(--coral);
+      margin: 0.6rem 0;
+      letter-spacing: 0.3em;
+      font-size: 0.9rem;
+    }
+
+    /* ── CTA section ── */
+    .cta-section {
+      text-align: center;
+      background: var(--navy);
+      color: var(--white);
+      padding: 2.8rem 1.5rem 3rem;
+      border-top: 3px solid var(--coral);
+    }
+
+    .cta-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.25em;
+      color: var(--coral-l);
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-monogram {
+      font-family: 'Cormorant SC', serif;
+      font-weight: 700;
+      font-size: 1.8rem;
+      color: var(--coral);
+      letter-spacing: 0.3em;
+      margin-bottom: 0.3rem;
+    }
+
+    .cta-headline {
+      font-family: 'Cormorant SC', serif;
+      font-weight: 700;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      color: var(--white);
+      letter-spacing: 0.06em;
+      margin-bottom: 0.4rem;
+      line-height: 1.1;
+    }
+
+    .cta-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(1rem, 2.5vw, 1.1rem);
+      color: var(--coral-l);
+      margin-bottom: 1.8rem;
+    }
+
+    .cta-btn-big {
+      display: inline-block;
+      background: var(--coral);
+      color: var(--white);
+      font-family: 'Cormorant SC', serif;
+      font-weight: 600;
+      font-size: clamp(1rem, 3vw, 1.15rem);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 1rem 2.8rem;
+      border: 2px solid var(--coral);
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .cta-btn-big:hover {
+      background: transparent;
+      color: var(--coral);
+    }
+
+    .cta-note {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.1em;
+      margin-top: 1rem;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--coral);
+      padding: 0.6rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.2rem;
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--white);
+    }
+
+    /* ══════════════════════════════
+       MOBILE
+    ══════════════════════════════ */
+    @media (max-width: 680px) {
+      body { background: var(--white); }
+
+      .newspaper { margin: 0; border: none; box-shadow: none; }
+
+      .masthead { padding: 1rem 1rem 0.8rem; }
+      .masthead-top span:nth-child(2),
+      .masthead-top span:nth-child(3) { display: none; }
+
+      .hero-photo { height: 52vw; }
+
+      .banner { padding: 1rem; }
+
+      .letter-box { padding: 1.2rem 1rem; }
+      .letter-box::before, .letter-box::after { display: none; }
+
+      .date-strip { flex-direction: row; }
+      .date-num { font-size: 1.4rem; }
+      .date-event { font-size: 0.7rem; }
+
+      .content {
+        grid-template-columns: 1fr;
+        padding: 0;
+      }
+
+      .col-divider {
+        display: block;
+        height: 2px;
+        margin: 0;
+        background: var(--coral-l);
+      }
+
+      .col {
+        padding: 1rem;
+      }
+
+      .col:first-child { padding-left: 1rem; }
+      .col:last-child  { padding-right: 1rem; }
+
+      p { font-size: 1.05rem; text-align: left; }
+
+      .sticky-cta { padding: 0 1rem; gap: 0; }
+      .sticky-cta-text { display: none; }
+      .sticky-cta-btn {
+        width: 100%;
+        justify-content: center;
+        font-size: 1rem;
+        padding: 0.7rem 1rem;
+      }
+
+      .cta-section { padding: 2rem 1rem 2.5rem; }
+
+      .footer { justify-content: center; }
+      .footer span:not(:first-child) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sticky CTA -->
+<div class="sticky-cta">
+  <span class="sticky-cta-text">Bekijk alle foto's &amp; video's →</span>
+  <a class="sticky-cta-btn"
+     href="https://drive.google.com/drive/folders/1Dkk40m25qO0yXxF820DGD536r_k9Tj9D?usp=sharing"
+     target="_blank" rel="noopener">Open het fotoarchief</a>
+</div>
+
+<article class="newspaper">
+
+  <!-- Masthead -->
+  <header class="masthead">
+    <div class="masthead-top">
+      <span>Juni 2026 · Speciale Editie</span>
+      <span>Alvor, Portugal</span>
+      <span>Jaargang I · Nr. 1</span>
+    </div>
+    <div class="masthead-monogram">MD</div>
+    <div class="masthead-title">Mada Times</div>
+    <div class="masthead-ornament">◆ · ◆ · ◆</div>
+    <div class="masthead-subtitle">Het officieuze journaal van Madeleine &amp; Daan van Baarsen · One Year Later</div>
+  </header>
+
+  <!-- Hero -->
+  <img class="hero-photo" src="img/image-1781722570551.jpg" alt="Alle gasten op het strand van Alvor">
+  <div class="photo-caption">Alle gasten bijeen op Praia de Alvor · Beachday, 15 juni 2025</div>
+
+  <!-- Banner -->
+  <section class="banner">
+    <div class="banner-kicker">Exclusief terugblik · 13–15 juni 2025 · Alvor, Portugal</div>
+    <h1 class="banner-headline">Een weekend dat we nooit zullen vergeten</h1>
+    <p class="banner-deck">Drie dagen zon, liefde, cocktails, dansen en vriendschap in Alvor. Een jaar later kijken wij terug op misschien wel het mooiste weekend van ons leven.</p>
+  </section>
+
+  <!-- Letter -->
+  <div class="letter-box">
+    <div class="letter-salutation">Lievelingsmensen,</div>
+    <div class="letter-body">
+      <p>Een jaar geleden stonden jullie met ons in Alvor om iets te vieren wat voor ons nog steeds onwerkelijk mooi voelt. Wat begon met een <em>sunset</em> cocktail rooftopparty op vrijdagavond groeide uit tot een weekend vol liefde, warmte, speeches en herinneringen waar we nog dagelijks aan terugdenken.</p>
+      <p>We hebben vaak gezegd dat onze bruiloft voelde als een kleine wereld waarin iedereen die we liefhebben samenkwam op één plek. <em>Dit gebeurde dankzij jullie.</em></p>
+      <div class="pull-quote-inline">'Geniet van hoe het is, hoe mooi het ook zal zijn, het zal nooit meer worden zoals het was.'</div>
+      <p>Samen met jullie willen we nog één keer terugkijken. Dank jullie wel dat jullie onze bruiloft onvergetelijk hebben gemaakt.</p>
+      <div class="letter-signoff">Liefs, Madeleine &amp; Daan</div>
+    </div>
+  </div>
+
+  <!-- Date strip -->
+  <div class="date-strip">
+    <div class="date-item">
+      <div class="date-num">13</div>
+      <div class="date-label">Juni 2025</div>
+      <div class="date-event">Rooftop Sunset Drinks</div>
+    </div>
+    <div class="date-item">
+      <div class="date-num">14</div>
+      <div class="date-label">Juni 2025</div>
+      <div class="date-event">Huwelijksceremonie &amp; Feest</div>
+    </div>
+    <div class="date-item">
+      <div class="date-num">15</div>
+      <div class="date-label">Juni 2025</div>
+      <div class="date-event">Beachday</div>
+    </div>
+  </div>
+
+  <!-- Three columns -->
+  <div class="content">
+
+    <!-- Col 1 -->
+    <div class="col">
+      <p class="byline">Door de redactie van Mada Times</p>
+
+      <h2>Huwelijksceremonie</h2>
+      <p class="dropcap">De ochtend van de bruid met de liefste vrouwen om haar heen. En ook de bruidegom bereide zich in stijl voor. Ondertussen was de trouwlocatie omgetoverd tot een droom — vrienden in de ladders om de tuin te versieren.</p>
+      <p>Toen was het tijd. De muziek startte. Iedereen ging staan. En ineens leek de tijd even stil te staan.</p>
+
+      <img class="inline-photo" src="img/M&D 203.jpg" alt="Gasten tijdens de huwelijksceremonie" style="height:270px; object-position:center 15%;">
+      <div class="cap">Pestana Alvor Praia · 14 juni 2025</div>
+
+      <div class="pull-quote">Mr. &amp; Mrs.<br>Van Baarsen!</div>
+
+      <div class="event">
+        <div class="event-meta">Vr 13 juni · 4RIAS</div>
+        <div class="event-title">Rooftop Sunset Drinks</div>
+        <p>Terwijl de lucht oranje kleurde, stroomde de rooftop vol met zomerse outfits.</p>
+      </div>
+      <div class="event">
+        <div class="event-meta">Za 14 juni · Praia de Alvor</div>
+        <div class="event-title">Sunrise Love Yoga</div>
+        <p>Rustig en zen, onder begeleiding van Tayla.</p>
+      </div>
+      <div class="event">
+        <div class="event-meta">Za 14 juni · Restinga</div>
+        <div class="event-title">Toast, Diner &amp; Feest</div>
+        <p>Speeches, een geweldig lied — en alle voetjes van de vloer.</p>
+      </div>
+      <div class="event">
+        <div class="event-meta">Zo 15 juni · Praia de Alvor</div>
+        <div class="event-title">Beachday</div>
+        <p>Geen draaiboek. Alleen zon, zee en gezelligheid.</p>
+      </div>
+    </div>
+
+    <div class="col-divider"></div>
+
+    <!-- Col 2 -->
+    <div class="col">
+      <h2>Drie Dagen, Eén Gevoel</h2>
+      <p class="dropcap">Het was een weekend dat je van tevoren niet kunt plannen en achteraf niet kunt beschrijven — alleen voelen. Alvor gaf ons de zon. Jullie gaven ons alles wat ertoe deed.</p>
+      <p>Van de eerste cocktail op het dak tot de laatste danspas op het strand: elk moment droeg het stempel van mensen die er echt voor kozen om er te zijn.</p>
+
+      <img class="inline-photo" src="img/image-1781722540284.jpg" alt="Gasten zwaaien met servetten" style="height:210px; object-position:center 40%;">
+      <div class="cap">Rooftop Sunset Drinks · 13 juni 2025</div>
+
+      <p>De ceremonie was adembenemend. De bruidskinderen Lily en Jurre stalen meer dan één hart. De speeches brachten tranen en gelach in gelijke maten.</p>
+
+      <div class="pull-quote">"Een kleine wereld waarin iedereen die we liefhebben samenkwam op één plek."</div>
+
+      <img class="inline-photo" src="img/image-1781722567942.jpg" alt="Feest op de rooftop" style="height:195px; object-position:center 20%;">
+      <div class="cap">Rooftop · 13 juni 2025</div>
+
+      <p>Een jaar later zijn de beelden nog scherp. De warmte van die Portugese avond. Het geluid van muziek dat opsteeg terwijl jullie dansten totdat de zon bijna weer op zou gaan.</p>
+    </div>
+
+    <div class="col-divider"></div>
+
+    <!-- Col 3 -->
+    <div class="col">
+      <h2>Het Feest</h2>
+
+      <img class="inline-photo" src="img/image-1781722573008.jpg" alt="Vrienden na het diner" style="height:215px; object-position:center 25%;">
+      <div class="cap">Restinga · Na het diner, 14 juni</div>
+
+      <img class="inline-photo" src="img/image-1781722576341.jpg" alt="Vrienden genieten" style="height:200px; object-position:center 25%;">
+      <div class="cap">14 juni 2025</div>
+
+      <div class="ornament">◆ · ◆ · ◆</div>
+
+      <h2>Jullie Eigen Archief</h2>
+      <p style="font-size:0.98rem;">Alle foto's en video's staan verzameld. Download en bewaar als aandenken aan dit onvergetelijke weekend.</p>
+      <p style="font-size:0.98rem; font-style:italic;">Klik op de knop onderaan het scherm om het archief te openen.</p>
+    </div>
+
+  </div>
+
+  <!-- In-page CTA -->
+  <section class="cta-section">
+    <div class="cta-label">Exclusief voor genodigden</div>
+    <div class="cta-monogram">MD</div>
+    <div class="cta-headline">Het Complete Fotoarchief</div>
+    <p class="cta-sub">Alle herinneringen aan ons mooiste weekend — nu in jullie handen.</p>
+    <a class="cta-btn-big"
+       href="https://drive.google.com/drive/folders/1Dkk40m25qO0yXxF820DGD536r_k9Tj9D?usp=sharing"
+       target="_blank" rel="noopener">Open het archief →</a>
+    <p class="cta-note">Google Drive · Foto's &amp; Video's · Vrij te downloaden</p>
+  </section>
+
+  <footer class="footer">
+    <span>Mada Times © 2026</span>
+    <span>Alvor, Portugal · 13–15 juni 2025</span>
+    <span>Met liefde gemaakt</span>
+  </footer>
+
+</article>
+</body>
+</html>
