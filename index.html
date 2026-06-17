@@ -404,7 +404,7 @@ footer{background:var(--darker);padding:44px 80px;display:flex;align-items:cente
       <select id="h-type" onchange="heroCalc()">
         <option value="">— alle types —</option>
         <option value="kantoor">Kantoor</option>
-        <option value="bedrijfs">Bedrijfsruimte / loods</option>
+        <option value="bedrijfs" selected>Bedrijfsruimte / loods</option>
         <option value="retail">Retailpand / winkel</option>
         <option value="gemengd">Gemengd gebruik</option>
         <option value="wonen">Wonen</option>
@@ -556,7 +556,7 @@ footer{background:var(--darker);padding:44px 80px;display:flex;align-items:cente
     <div class="calc-card fade-up">
       <div class="calc-body">
         <div class="calc-grid">
-          <div class="calc-field"><label>Type vastgoed</label><select id="c-type" onchange="calcRun()"><option value="">— selecteer —</option><option value="kantoor">Kantoor</option><option value="bedrijfs">Bedrijfsruimte / loods</option><option value="retail">Retailpand / winkel</option><option value="gemengd">Gemengd gebruik</option><option value="wonen">Wonen</option></select></div>
+          <div class="calc-field"><label>Type vastgoed</label><select id="c-type" onchange="calcRun()"><option value="">— selecteer —</option><option value="kantoor">Kantoor</option><option value="bedrijfs" selected>Bedrijfsruimte / loods</option><option value="retail">Retailpand / winkel</option><option value="gemengd">Gemengd gebruik</option><option value="wonen">Wonen</option></select></div>
           <div class="calc-field"><label>Locatie</label><select id="c-regio" onchange="calcRun()"><option value="">— selecteer —</option><option value="a">Randstad — A-locatie</option><option value="b">Grote stad — B-locatie</option><option value="c">Middelgrote stad / regio</option><option value="d">Buiten stedelijk gebied</option></select></div>
           <div class="calc-field calc-full">
             <label>Jaarhuur</label>
