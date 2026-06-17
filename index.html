@@ -834,34 +834,43 @@ footer{background:var(--darker);padding:44px 80px;display:flex;align-items:cente
 
       <div id="vb-form">
         <div class="contact-form-grid">
-          <div class="contact-field">
-            <label>Voornaam</label>
-            <input id="f-voornaam" type="text" placeholder="Voornaam" autocomplete="given-name" name="voornaam">
+
+          <!-- Stap 1: e-mail altijd zichtbaar -->
+          <div class="contact-field contact-field-full">
+            <label>E-mailadres</label>
+            <input id="f-email" type="email" placeholder="naam@bedrijf.nl" autocomplete="email" name="email" oninput="formReveal()">
           </div>
-          <div class="contact-field">
+
+          <!-- Stap 2: voornaam -->
+          <div class="contact-field contact-field-full form-step" id="step-voornaam" style="display:none">
+            <label>Voornaam</label>
+            <input id="f-voornaam" type="text" placeholder="Voornaam" autocomplete="given-name" name="voornaam" oninput="formReveal()">
+          </div>
+
+          <!-- Stap 3: tussenvoegsel + achternaam -->
+          <div class="contact-field form-step" id="step-tussenvoegsel" style="display:none">
             <label>Tussenvoegsel</label>
             <input id="f-tussenvoegsel" type="text" placeholder="van, de, …" autocomplete="additional-name" name="tussenvoegsel">
           </div>
-          <div class="contact-field contact-field-full">
+          <div class="contact-field form-step" id="step-achternaam" style="display:none">
             <label>Achternaam</label>
-            <input id="f-achternaam" type="text" placeholder="Achternaam" autocomplete="family-name" name="achternaam">
+            <input id="f-achternaam" type="text" placeholder="Achternaam" autocomplete="family-name" name="achternaam" oninput="formReveal()">
           </div>
-          <div class="contact-field">
+
+          <!-- Stap 4: telefoon + regio + submit -->
+          <div class="contact-field contact-field-full form-step" id="step-tel" style="display:none">
             <label>Telefoonnummer</label>
             <input id="f-tel" type="tel" placeholder="06 — — — —" autocomplete="tel" name="tel">
           </div>
-          <div class="contact-field">
-            <label>E-mailadres</label>
-            <input id="f-email" type="email" placeholder="naam@bedrijf.nl" autocomplete="email" name="email">
-          </div>
-          <div class="contact-field contact-field-full">
+          <div class="contact-field contact-field-full form-step" id="step-regio" style="display:none">
             <label>Regio</label>
             <input id="f-regio" type="text" placeholder="bijv. Amsterdam, Midden-Nederland, Den Haag…" autocomplete="address-level2" name="regio">
           </div>
-          <div class="contact-field contact-field-full">
+          <div class="contact-field contact-field-full form-step" id="step-submit" style="display:none">
             <p id="form-error" style="display:none;font-size:12px;color:#d9534f;margin-bottom:8px">Vul alle verplichte velden in.</p>
             <button class="btn-red" id="form-submit-btn" onclick="submitToGF()">Ontvang voorstel op maat →</button>
           </div>
+
         </div>
         <div class="final-meta" style="margin-top:20px">
           <span>Strikt vertrouwelijk</span>
@@ -910,6 +919,32 @@ function toggleFaq(btn){
 // ─── GRAVITY FORMS KOPPELING ──────────────────────────────
 // Vul hieronder jouw gegevens in:
 const WEBHOOK_URL = 'https://hooks.zapier.com/hooks/catch/7013957/4beh88g/';
+
+function showStep(id){
+  const el = document.getElementById(id);
+  if(el && el.style.display==='none'){
+    el.style.display='';
+    const inp = el.querySelector('input');
+    if(inp) setTimeout(()=>inp.focus(),50);
+  }
+}
+
+function formReveal(){
+  const email     = document.getElementById('f-email').value.trim();
+  const voornaam  = document.getElementById('f-voornaam').value.trim();
+  const achternaam= document.getElementById('f-achternaam').value.trim();
+
+  if(email) showStep('step-voornaam');
+  if(email && voornaam){
+    showStep('step-tussenvoegsel');
+    showStep('step-achternaam');
+  }
+  if(email && voornaam && achternaam){
+    showStep('step-tel');
+    showStep('step-regio');
+    showStep('step-submit');
+  }
+}
 
 async function submitToGF(){
   const voornaam      = document.getElementById('f-voornaam').value.trim();
