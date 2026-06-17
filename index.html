@@ -160,8 +160,8 @@ tr:last-child td{border:none}
 .calc-field select:focus,.calc-field input:focus{border-color:var(--red)}
 .calc-full{grid-column:1/-1}
 .range-display{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink);margin-bottom:8px}
-input[type=range]{width:100%;height:24px;-webkit-appearance:none;appearance:none;background:transparent;outline:none;border:none;margin-top:4px;cursor:pointer;padding:0}input[type=range]::-webkit-slider-runnable-track{height:3px;border-radius:3px;background:linear-gradient(to right,var(--red) var(--pct,7%),var(--border) var(--pct,7%))}input[type=range]::-moz-range-track{height:3px;border-radius:3px;background:var(--border)}input[type=range]::-moz-range-progress{height:3px;border-radius:3px;background:var(--red)}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:#fff;border-radius:50%;cursor:pointer;border:2px solid var(--border);box-shadow:0 1px 6px rgba(0,0,0,.15);margin-top:-10px}input[type=range]::-moz-range-thumb{width:20px;height:20px;background:#fff;border-radius:50%;cursor:pointer;border:2px solid var(--border);box-shadow:0 1px 6px rgba(0,0,0,.15)}
+input[type=range]{width:100%;height:24px;-webkit-appearance:none;appearance:none;background:transparent;outline:none;border:none;margin-top:4px;cursor:pointer;padding:0}input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:4px;background:linear-gradient(to right,#B8976A var(--pct,7%),#E8DDD0 var(--pct,7%))}input[type=range]::-moz-range-track{height:4px;border-radius:4px;background:#E8DDD0}input[type=range]::-moz-range-progress{height:4px;border-radius:4px;background:#B8976A}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:38px;height:38px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='8' y='7' width='3' height='10' rx='1.5' fill='%23B8976A'/%3E%3Crect x='13' y='7' width='3' height='10' rx='1.5' fill='%23B8976A'/%3E%3C/svg%3E") center/18px no-repeat;border-radius:50%;cursor:pointer;border:2px solid #B8976A;box-shadow:0 2px 8px rgba(0,0,0,.12);margin-top:-17px}input[type=range]::-moz-range-thumb{width:36px;height:36px;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect x='8' y='7' width='3' height='10' rx='1.5' fill='%23B8976A'/%3E%3Crect x='13' y='7' width='3' height='10' rx='1.5' fill='%23B8976A'/%3E%3C/svg%3E") center/18px no-repeat;border-radius:50%;cursor:pointer;border:2px solid #B8976A;box-shadow:0 2px 8px rgba(0,0,0,.12)}
 .calc-result{background:var(--darker);padding:40px 48px;display:block}
 .result-row{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;margin-bottom:28px}
 .result-tag{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
@@ -429,7 +429,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 .stepper-hint{font-size:12px;color:var(--fog);margin-bottom:8px}
 .stepper-minmax{display:flex;justify-content:space-between;font-size:11px;color:var(--fog);margin-top:6px}
 /* Override range slider for hero form (light bg) */
-.hero-form input[type=range],.calc-body input[type=range]{height:24px;margin-top:0}.hero-form input[type=range]::-webkit-slider-thumb,.calc-body input[type=range]::-webkit-slider-thumb{width:24px;height:24px;margin-top:-11px}
+.hero-form input[type=range],.calc-body input[type=range]{height:40px;margin-top:0}.hero-form input[type=range]::-webkit-slider-thumb,.calc-body input[type=range]::-webkit-slider-thumb{width:38px;height:38px;margin-top:-17px}
 </style>
 </head>
 <body>
@@ -484,7 +484,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
         <div class="stepper-display" id="h-huur-disp">€ 69.000</div>
         <button class="stepper-btn" onclick="stepHuur('h',1)" aria-label="Meer">+</button>
       </div>
-      <p class="stepper-hint">Of versleep voor de fijnafstelling</p>
+      <p class="stepper-hint"><span style="font-family:monospace;font-size:11px;margin-right:4px">&lt;&gt;</span>Sleep de knop om aan te passen</p>
       <input type="range" id="h-huur" min="0" max="1000000" step="2500" value="69000"
         oninput="syncHuur('h')">
       <div class="stepper-minmax"><span>€ 0</span><span>€ 1.000.000</span></div>
@@ -656,7 +656,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
               <div class="stepper-display" id="c-huur-disp">€ 69.000</div>
               <button class="stepper-btn" onclick="stepHuur('c',1)" aria-label="Meer">+</button>
             </div>
-            <p class="stepper-hint">Of versleep voor de fijnafstelling</p>
+            <p class="stepper-hint"><span style="font-family:monospace;font-size:11px;margin-right:4px">&lt;&gt;</span>Sleep de knop om aan te passen</p>
             <input type="range" id="c-huur" min="0" max="1000000" step="2500" value="69000"
               oninput="syncHuur('c')">
             <div class="stepper-minmax"><span>€ 0</span><span>€ 1.000.000</span></div>
