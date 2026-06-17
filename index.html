@@ -294,6 +294,17 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;heigh
 .contact-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:0}
 .contact-field{display:flex;flex-direction:column;gap:5px}
 .contact-field-full{grid-column:1/-1}
+.form-progress{margin-bottom:24px}
+.form-progress-steps{display:flex;align-items:center;gap:0}
+.fp-step{display:flex;flex-direction:column;align-items:center;gap:6px;flex-shrink:0}
+.fp-dot{width:10px;height:10px;border-radius:50%;background:var(--border);border:2px solid var(--border);transition:all .2s;display:block}
+.fp-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--fog);transition:color .2s}
+.fp-line{flex:1;height:2px;background:var(--border);margin:0 4px;margin-bottom:16px;transition:background .2s}
+.fp-step.fp-active .fp-dot{background:var(--red);border-color:var(--red)}
+.fp-step.fp-active .fp-label{color:var(--ink)}
+.fp-step.fp-done .fp-dot{background:var(--red);border-color:var(--red)}
+.fp-step.fp-done .fp-label{color:var(--stone)}
+.fp-step.fp-done~.fp-line{background:var(--red)}
 .contact-field label{font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--stone)}
 .contact-field input,.contact-field select{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;font-family:var(--sans);font-size:14px;color:var(--ink);outline:none;transition:border .18s;-webkit-appearance:none;appearance:none}
 .contact-field input::placeholder{color:var(--fog)}
