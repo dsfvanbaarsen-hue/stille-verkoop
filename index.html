@@ -27,9 +27,7 @@ html{scroll-behavior:smooth}
 body{font-family:var(--sans);background:var(--cream);color:var(--ink);font-size:16px;line-height:1.6;overflow-x:hidden}
 
 /* ── NAV ──────────────────────────────────────────────── */
-nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px solid rgba(255,255,255,.07)}
-.nav-inner{padding:0 80px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
-.logo-img{height:44px;width:auto;display:block}
+.logo-img{height:32px;width:auto;display:block}
 .nav-links{display:flex;gap:36px;list-style:none}
 .nav-links a{font-size:12px;font-weight:500;color:rgba(240,236,228,.55);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
 .nav-links a:hover{color:var(--cream)}
@@ -313,69 +311,88 @@ footer{background:var(--darker);padding:44px 80px;display:flex;align-items:cente
 .fade-up.in{opacity:1;transform:none}
 
 /* ── MOBILE ───────────────────────────────────────────── */
+/* ── NAV DESKTOP ──────────────────────────────────────── */
+nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px solid rgba(255,255,255,.07)}
+.nav-inner{padding:0 80px;height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-left{display:flex;align-items:center;gap:32px}
+.nav-right{display:flex;gap:10px;align-items:center}
+.nav-over-ons{font-size:12px;font-weight:500;color:rgba(240,236,228,.5);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-over-ons:hover{color:var(--cream)}
+.nav-btn{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;padding:10px 22px;cursor:pointer;transition:all .2s;white-space:nowrap;border-radius:var(--r)}
+.nav-btn:not(.nav-btn-ghost){background:var(--red);color:#fff}
+.nav-btn:not(.nav-btn-ghost):hover{background:var(--red-lt)}
+.nav-btn-ghost{background:transparent;border:1px solid rgba(255,255,255,.18);color:rgba(240,236,228,.7)}
+.nav-btn-ghost:hover{border-color:rgba(255,255,255,.4);color:var(--cream)}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.nav-hamburger span{display:block;width:22px;height:2px;background:rgba(240,236,228,.7);border-radius:1px;transition:all .25s}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-mobile-menu{display:none;flex-direction:column;gap:0;background:var(--darker);border-top:1px solid rgba(255,255,255,.07);padding:0}
+.nav-mobile-menu.open{display:flex}
+.nav-mobile-link{padding:16px 24px;font-size:13px;font-weight:500;color:rgba(240,236,228,.6);text-decoration:none;border-bottom:1px solid rgba(255,255,255,.05)}
+.nav-mobile-link:hover{color:var(--cream)}
+.nav-mobile-btn-ghost,.nav-mobile-btn-red{width:100%;font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:none;padding:16px 24px;cursor:pointer;text-align:left;border-bottom:1px solid rgba(255,255,255,.05)}
+.nav-mobile-btn-ghost{background:none;color:rgba(240,236,228,.6)}
+.nav-mobile-btn-red{background:var(--red);color:#fff}
+
+/* ── RESPONSIVE ───────────────────────────────────────── */
 @media(max-width:980px){
   .hero{grid-template-columns:1fr}
-  .hero-left{padding:64px 32px 48px;min-height:auto}
+  .hero-left{padding:56px 32px 40px;min-height:auto}
   .hero-left::after{display:none}
   .hero-form{padding:40px 32px}
-  .section,.calc-section,.compare-section,.testi-section,.faq-section,.process-section,.final-section{padding:72px 24px}
-  .proof-bar{padding:18px 24px}
+  .section,.calc-section,.compare-section,.testi-section,.faq-section,.process-section,.final-section{padding:64px 24px}
+  .proof-bar{flex-wrap:wrap;padding:18px 24px}
   .why-grid{grid-template-columns:1fr 1fr}
   .testi-grid{grid-template-columns:1fr}
-  .process-grid{grid-template-columns:1fr;gap:48px}
+  .process-grid{grid-template-columns:1fr;gap:40px}
   .calc-grid{grid-template-columns:1fr}
   .result-row{grid-template-columns:1fr}
-  .nav-links{display:none}
-  .hero-stats{gap:28px}
-  footer{flex-direction:column;align-items:flex-start;padding:36px 24px}
+  .nav-right{display:none}
+  .nav-over-ons{display:none}
+  .nav-hamburger{display:flex}
+  .nav-inner{padding:0 24px;height:60px}
+  .hero-stats{gap:24px}
+  footer{flex-direction:column;align-items:flex-start;padding:32px 24px}
   .footer-info{text-align:left}
   .contact-person-grid{grid-template-columns:1fr}
-  .contact-person-photo{min-height:320px}
-  .contact-person-info{padding:48px 24px}
-  .proof-bar{flex-wrap:wrap;padding:18px 24px}
+  .contact-person-photo{min-height:280px}
+  .contact-person-info{padding:40px 24px}
   .proof-over-ons{width:100%}
+  .steps-3{grid-template-columns:1fr !important}
+  .steps-3>div{border-right:none !important;border-bottom:1px solid var(--border)}
+  .steps-3>div:last-child{border-bottom:none}
 }
 @media(max-width:600px){
   .why-grid{grid-template-columns:1fr}
-  .hero-stats{flex-wrap:wrap;gap:24px}
+  .hero-stats{flex-wrap:wrap;gap:20px}
+  .hero-left{padding:40px 20px 36px}
+  .hero-form{padding:32px 20px}
+  .calc-body{padding:20px}
+  .calc-result{padding:20px}
+  .result-ctas{min-width:0;width:100%}
+  .testi-card{padding:24px 20px}
+  .proof-bar{padding:14px 20px;gap:12px}
+  .proof-items{gap:16px}
+  .faq-q{font-size:16px}
+  .final-section{padding:64px 20px}
+  .objects-section{padding:44px 20px}
+  .process-section{padding:52px 20px}
+  .contact-form-grid{grid-template-columns:1fr}
+  .contact-field-full{grid-column:1}
+  .hero-pill{font-size:14px;padding:10px 16px}
 }
-
 @media(max-width:900px){
   .objects-grid-3{grid-template-columns:1fr}
-  .objects-section{padding:60px 24px}
-  .merged-form-wrap{order:-1}
+  .objects-section{padding:52px 20px}
+  .merged-form-wrap{order:-1;padding:36px 24px}
   .merged-divider{display:none}
   .merged-inner{grid-template-columns:1fr;grid-template-rows:auto}
-  .merged-divider{display:none}
-  .merged-photo{min-height:260px}
-  .merged-person-info{padding:32px 28px}
-  .merged-form-wrap{padding:40px 28px}
+  .merged-photo{min-height:240px}
+  .merged-person-info{padding:28px 24px}
   .merged-actions{flex-direction:column}
 }
-
-/* ── FORM PROGRESS BAR ────────────────────────────────── */
-.form-progress{margin-bottom:28px}
-.form-progress-steps{display:flex;align-items:center;gap:0}
-.fp-step{display:flex;flex-direction:column;align-items:center;gap:5px;flex-shrink:0}
-.fp-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--border);background:#fff;transition:all .25s}
-.fp-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--fog);transition:color .25s;white-space:nowrap}
-.fp-line{flex:1;height:2px;background:var(--border);transition:background .25s;margin-bottom:15px}
-.fp-step.fp-active .fp-dot{border-color:var(--red);background:var(--red)}
-.fp-step.fp-active .fp-label{color:var(--ink)}
-.fp-step.fp-done .fp-dot{border-color:var(--red);background:var(--red)}
-.fp-step.fp-done .fp-dot::after{content:'✓';display:block;color:#fff;font-size:7px;line-height:1;margin-top:0;text-align:center;position:relative;top:-1px;font-weight:700}
-.fp-step.fp-done .fp-label{color:var(--stone)}
-.fp-line.fp-done{background:var(--red)}
-
-/* Form fields on light background */
-.merged-form-wrap .contact-field label{color:var(--stone)}
-.merged-form-wrap .contact-field input,
-.merged-form-wrap .contact-field select{background:#fff;border:1px solid var(--border);color:var(--ink)}
-.merged-form-wrap .contact-field input::placeholder{color:var(--fog)}
-.merged-form-wrap .contact-field input:focus,
-.merged-form-wrap .contact-field select:focus{border-color:var(--red)}
-.merged-form-wrap .final-meta span{color:var(--stone)}
-
 @media(max-width:700px){
   .compare-section{padding:40px 16px}
   .compare-wrap{overflow-x:visible}
@@ -389,39 +406,28 @@ footer{background:var(--darker);padding:44px 80px;display:flex;align-items:cente
   td:nth-child(3){color:rgba(240,236,228,.45)}
   td:nth-child(3)::before{content:'Openbaar';font-size:8px;font-weight:700;letter-spacing:.1em;color:rgba(240,236,228,.2);display:block;margin-bottom:2px}
 }
-@media(max-width:600px){
-  .calc-body{padding:24px 20px}
-  .calc-result{padding:24px 20px}
-  .result-ctas{min-width:0;width:100%}
-  .testi-card{padding:28px 24px}
-  .nav-inner{padding:0 20px}
-  .hero-left{padding:48px 20px 40px}
-  .hero-form{padding:36px 20px}
-  .hero-stats{gap:20px}
-  .hero-sub{font-size:15px}
-  .proof-bar{padding:16px 20px;gap:16px}
-  .proof-items{gap:20px}
-  .faq-q{font-size:16px}
-  .final-section{padding:72px 20px}
-  .objects-section{padding:48px 20px}
-  .process-section{padding:60px 20px}
-  .contact-form-grid{grid-template-columns:1fr}
-  .contact-field-full{grid-column:1}
-}
 </style>
 </head>
 <body>
 
 <nav>
   <div class="nav-inner">
-    <div style="display:flex;align-items:center;gap:36px">
+    <div class="nav-left">
       <img src="/logo-licht.svg" alt="Van Baarsen Vastgoed" class="logo-img">
-      <a href="https://vanbaarsen.nl/over-ons/" target="_blank" rel="noopener" class="nav-links" style="list-style:none;font-size:12px;font-weight:500;color:rgba(240,236,228,.55);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='rgba(240,236,228,.55)'">Over ons</a>
+      <a href="https://vanbaarsen.nl/over-ons/" target="_blank" rel="noopener" class="nav-over-ons">Over ons</a>
     </div>
-    <div style="display:flex;gap:10px;align-items:center">
-      <button class="nav-btn" style="background:transparent;border:1px solid rgba(255,255,255,.18);color:rgba(240,236,228,.7)" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">Bereken waarde</button>
+    <div class="nav-right">
+      <button class="nav-btn nav-btn-ghost" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">Bereken waarde</button>
       <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Ontvang voorstel op maat →</button>
     </div>
+    <button class="nav-hamburger" id="nav-hamburger" onclick="toggleNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-menu" id="nav-mobile-menu">
+    <a href="https://vanbaarsen.nl/over-ons/" target="_blank" rel="noopener" class="nav-mobile-link">Over ons</a>
+    <button class="nav-mobile-btn-ghost" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'});toggleNav()">Bereken waarde</button>
+    <button class="nav-mobile-btn-red" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});toggleNav()">Ontvang voorstel op maat →</button>
   </div>
 </nav>
 
@@ -916,6 +922,18 @@ footer{background:var(--darker);padding:44px 80px;display:flex;align-items:cente
 </footer>
 
 <script>
+function toggleNav(){
+  const menu=document.getElementById('nav-mobile-menu');
+  const btn=document.getElementById('nav-hamburger');
+  menu.classList.toggle('open');
+  btn.classList.toggle('open');
+}
+// Close nav on scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav-mobile-menu').classList.remove('open');
+  document.getElementById('nav-hamburger').classList.remove('open');
+},{passive:true});
+
 function fmtEuro(n){
   if(n>=1e6){const m=n/1e6;return'€ '+(m%1===0?m.toFixed(0):(Math.round(m*10)/10).toFixed(1))+'M'}
   return'€ '+Math.round(n/1000).toLocaleString('nl')+'K'
