@@ -198,7 +198,9 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;heigh
 .objects-grid{display:grid;gap:24px;margin:0 auto}.objects-grid-3{grid-template-columns:repeat(3,1fr);max-width:1080px}
 .obj-card{background:#fff;border:1px solid var(--border);border-radius:6px;overflow:hidden;transition:box-shadow .25s,transform .25s}
 .obj-card:hover{box-shadow:0 8px 40px rgba(0,0,0,.10);transform:translateY(-3px)}
-.obj-badge-wrap{background:var(--darker);padding:20px 20px 16px;text-align:center;position:relative}
+.obj-badge-wrap{background:var(--darker);padding:20px 20px 16px;text-align:center;position:relative;background-size:cover;background-position:center;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end}
+.obj-badge-wrap::before{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(15,14,12,.97) 30%,rgba(15,14,12,.6) 100%);z-index:0}
+.obj-badge-wrap>*{position:relative;z-index:1}
 .obj-type{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
 .obj-label{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,236,228,.2);margin-bottom:6px}
 .obj-name{font-family:var(--serif);font-size:20px;font-weight:500;color:var(--cream);line-height:1.25;margin-bottom:12px}
@@ -469,7 +471,7 @@ footer{background:var(--darker);padding:44px 80px;display:flex;align-items:cente
     
 
     <div class="obj-card">
-      <div class="obj-badge-wrap">
+      <div class="obj-badge-wrap" style="background-image:url('https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80')">
         <p class="obj-type">Ontwikkelkans</p>
         <p class="obj-label">Transactie</p>
         <h3 class="obj-name">Herontwikkellocatie met bestaande huurstroom</h3>
@@ -486,7 +488,7 @@ footer{background:var(--darker);padding:44px 80px;display:flex;align-items:cente
     </div>
 
     <div class="obj-card">
-      <div class="obj-badge-wrap">
+      <div class="obj-badge-wrap" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80')">
         <p class="obj-type">Bedrijfsruimte</p>
         <p class="obj-label">Transactie</p>
         <h3 class="obj-name">Bedrijfspand met kantoorunit op bedrijventerrein</h3>
@@ -503,7 +505,7 @@ footer{background:var(--darker);padding:44px 80px;display:flex;align-items:cente
     </div>
 
     <div class="obj-card">
-      <div class="obj-badge-wrap">
+      <div class="obj-badge-wrap" style="background-image:url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&q=80')">
         <p class="obj-type">Retail</p>
         <p class="obj-label">Transactie</p>
         <h3 class="obj-name">Verhuurd winkelpand op A-locatie binnenstad</h3>
