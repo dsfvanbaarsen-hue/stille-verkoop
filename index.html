@@ -430,6 +430,50 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 .stepper-minmax{display:flex;justify-content:space-between;font-size:11px;color:var(--fog);margin-top:6px}
 /* Override range slider for hero form (light bg) */
 
+
+/* ── Daan trust section ──────────────────────────────────── */
+.daan-trust-section{background:var(--darker);padding:64px 80px}
+.daan-trust-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:360px 1fr;gap:60px;align-items:start}
+.daan-trust-photos{position:relative;height:360px}
+.daan-trust-photo{position:absolute;object-fit:cover;border-radius:4px}
+.daan-trust-photo-main{width:260px;height:340px;top:0;left:0;object-position:center top}
+.daan-trust-photo-accent{width:180px;height:220px;bottom:0;right:0;object-position:center top;border:4px solid var(--darker)}
+.daan-trust-name{font-family:var(--serif);font-size:clamp(28px,3vw,42px);font-weight:400;color:var(--cream);margin-bottom:4px;line-height:1.1}
+.daan-trust-role{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:20px}
+.daan-trust-text{font-size:15px;color:rgba(240,236,228,.7);line-height:1.75;margin-bottom:28px;max-width:480px}
+.daan-trust-section .eyebrow{color:var(--red-lt)}
+/* Privacy promise box */
+.privacy-promise{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:24px 28px}
+.privacy-promise-title{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
+.privacy-promise-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
+.privacy-promise-list li{font-size:13px;color:rgba(240,236,228,.75);padding-left:18px;position:relative;line-height:1.5}
+.privacy-promise-list li::before{content:'✓';position:absolute;left:0;color:var(--red);font-size:11px;font-weight:700;top:1px}
+/* Obj context line */
+.obj-context{font-size:11px;color:var(--stone);padding:10px 16px;background:var(--paper);margin:0;line-height:1.5;font-style:italic}
+/* Geschikt section */
+.geschikt-section{background:var(--cream);padding:80px 80px}
+.geschikt-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto}
+.geschikt-card{background:#fff;border:1px solid var(--border);border-radius:6px;padding:32px 36px}
+.geschikt-ja{border-top:3px solid #2e7d32}
+.geschikt-nee{border-top:3px solid var(--border)}
+.geschikt-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.geschikt-header h3{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink);margin:0}
+.geschikt-icon{width:28px;height:28px;border-radius:50%;background:#2e7d32;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
+.geschikt-icon-nee{background:var(--border)}
+.geschikt-card ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.geschikt-card li{font-size:13px;color:var(--stone);padding-left:16px;position:relative;line-height:1.5}
+.geschikt-card li::before{content:'—';position:absolute;left:0;color:var(--fog)}
+.geschikt-note{font-size:12px;color:var(--fog);margin-top:20px;font-style:italic;line-height:1.6}
+/* Responsive */
+@media(max-width:980px){
+  .daan-trust-section{padding:48px 24px}
+  .daan-trust-inner{grid-template-columns:1fr;gap:32px}
+  .daan-trust-photos{height:260px}
+  .daan-trust-photo-main{width:200px;height:260px}
+  .daan-trust-photo-accent{width:140px;height:170px}
+  .geschikt-section{padding:52px 24px}
+  .geschikt-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -466,9 +510,9 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
       <span class="hero-pill"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20 7L9 18l-5-5"/></svg>Regelmatig sneller dan openbare verkoop</span>
     </div>
     <div class="hero-stats">
-      <div><span class="stat-n">30M<span>+</span></span><span class="stat-l">Vastgoed in beheer</span></div>
-      <div><span class="stat-n">1986</span><span class="stat-l">Actief in vastgoed</span></div>
-      <div><span class="stat-n">4,8<span>/5</span></span><span class="stat-l">Google rating</span></div>
+      <div><span class="stat-n">30M<span>+</span></span><span class="stat-l">Actuele beheerportefeuille</span></div>
+      <div><span class="stat-n">1986</span><span class="stat-l">Familiebedrijf sinds</span></div>
+      <div><span class="stat-n">4,8<span>/5</span></span><span class="stat-l">Google rating · 80+ reviews</span></div>
     </div>
   </div>
 
@@ -517,6 +561,32 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 </section>
 
 
+
+<section class="daan-trust-section">
+  <div class="daan-trust-inner">
+    <div class="daan-trust-photos">
+      <img src="https://vanbaarsen.nl/wp-content/uploads/2025/02/van-baarsen-vastgoed-web-07906.jpg" alt="Daan van Baarsen" class="daan-trust-photo daan-trust-photo-main">
+      <img src="https://vanbaarsen.nl/wp-content/uploads/2025/02/van-baarsen-vastgoed-web-07972.jpg" alt="Daan van Baarsen" class="daan-trust-photo daan-trust-photo-accent">
+    </div>
+    <div class="daan-trust-content">
+      <p class="eyebrow" style="margin-bottom:10px">Persoonlijk begeleid door</p>
+      <h2 class="daan-trust-name"><a href="https://vanbaarsen.nl/daan-van-baarsen/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Daan van Baarsen</a></h2>
+      <p class="daan-trust-role">Makelaar Beleggingsvastgoed · Van Baarsen Vastgoed</p>
+      <p class="daan-trust-text">Ik bespreek uw situatie persoonlijk — vertrouwelijk en zonder verplichtingen. Er wordt niets gedeeld zonder uw akkoord. U hoeft nog niet te verkopen; u kunt eerst discreet ontdekken wat mogelijk is.</p>
+      <div class="privacy-promise">
+        <p class="privacy-promise-title">Onze vertrouwelijkheidsbelofte</p>
+        <ul class="privacy-promise-list">
+          <li>Uw pand wordt niet openbaar aangeboden</li>
+          <li>Wij benaderen geen huurders, medewerkers of relaties</li>
+          <li>Gegevens worden niet gedeeld zonder uw schriftelijke akkoord</li>
+          <li>Serieuze kandidaten ontvangen pas details na uw toestemming</li>
+          <li>Indien gewenst werken wij met NDA</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
 <div class="proof-bar">
   <span class="proof-label">Onze klanten</span>
   <div class="proof-divider"></div>
@@ -550,7 +620,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
   <div class="objects-header">
     <p class="eyebrow">Recente transacties</p>
     <h2 class="section-h" style="font-family:var(--serif);font-size:clamp(26px,3vw,40px);font-weight:400;margin-bottom:12px">Voorbeelden van recent begeleide objecten</h2>
-    <p style="font-size:15px;color:var(--stone);max-width:520px;margin:0 auto">Alle transacties volledig off-market begeleid. Namen en exacte adressen zijn vertrouwelijk.</p>
+    <p style="font-size:15px;color:var(--stone);max-width:560px;margin:0 auto">Alle transacties volledig off-market begeleid. Vanwege vertrouwelijkheid tonen wij geen namen of exacte adressen. <em>Op aanvraag delen wij passende referenties na kennismaking.</em></p>
   </div>
   <div class="objects-grid objects-grid-3">
 
@@ -569,6 +639,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
         <p class="obj-price">€ 1.100.000</p>
         <span class="obj-sold">Verkocht · Off-market</span>
       </div>
+      <p class="obj-context">Besloten benadering van geselecteerde beleggers. Huurders niet betrokken tijdens verkoopproces.</p>
       <div class="obj-meta">
         <div class="obj-meta-item"><p class="obj-meta-label">Huurstroom</p><p class="obj-meta-val">€ 70k</p></div>
         <div class="obj-meta-item"><p class="obj-meta-label">BAR</p><p class="obj-meta-val">6,5%</p></div>
@@ -586,6 +657,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
         <p class="obj-price">€ 695.000</p>
         <span class="obj-sold">Verkocht · Off-market</span>
       </div>
+      <p class="obj-context">Verkoop afgerond zonder publicatie. Koper gevonden via direct netwerk binnen 5 weken.</p>
       <div class="obj-meta">
         <div class="obj-meta-item"><p class="obj-meta-label">Huurstroom</p><p class="obj-meta-val">€ 58k</p></div>
         <div class="obj-meta-item"><p class="obj-meta-label">BAR</p><p class="obj-meta-val">8,4%</p></div>
@@ -603,6 +675,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
         <p class="obj-price">€ 2.850.000</p>
         <span class="obj-sold">Verkocht · Off-market</span>
       </div>
+      <p class="obj-context">A-locatie binnenstad. Besloten veiling onder 4 geselecteerde beleggers — transactie boven vraagprijs.</p>
       <div class="obj-meta">
         <div class="obj-meta-item"><p class="obj-meta-label">Huurstroom</p><p class="obj-meta-val">€ 215k</p></div>
         <div class="obj-meta-item"><p class="obj-meta-label">BAR</p><p class="obj-meta-val">7,5%</p></div>
@@ -611,6 +684,38 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
       </div>
     </div>
 
+  </div>
+</section>
+
+
+
+<section class="geschikt-section">
+  <div class="section-inner">
+    <p class="eyebrow fade-up">Voor wie is dit geschikt</p>
+    <h2 class="section-h fade-up" style="margin-bottom:40px">Eerlijk over wanneer stille verkoop werkt.</h2>
+    <div class="geschikt-grid fade-up">
+      <div class="geschikt-card geschikt-ja">
+        <div class="geschikt-header"><span class="geschikt-icon">✓</span><h3>Geschikt als u…</h3></div>
+        <ul>
+          <li>een verhuurd bedrijfs- of beleggingspand bezit</li>
+          <li>geen onrust wilt bij huurders of medewerkers</li>
+          <li>eerst discreet de markt wilt verkennen</li>
+          <li>alleen met serieuze, gekwalificeerde kopers wilt spreken</li>
+          <li>controle wilt houden over timing en voorwaarden</li>
+          <li>fiscaal voordelig wilt overdragen</li>
+        </ul>
+      </div>
+      <div class="geschikt-card geschikt-nee">
+        <div class="geschikt-header"><span class="geschikt-icon geschikt-icon-nee">×</span><h3>Minder geschikt als u…</h3></div>
+        <ul>
+          <li>maximale publieke zichtbaarheid wilt</li>
+          <li>binnen enkele dagen moet verkopen</li>
+          <li>vooral particuliere woningkopers zoekt</li>
+          <li>geen actuele huur- of objectinformatie beschikbaar heeft</li>
+        </ul>
+        <p class="geschikt-note">Twijfelt u? Neem gerust contact op — wij adviseren u eerlijk of stille verkoop bij uw situatie past.</p>
+      </div>
+    </div>
   </div>
 </section>
 
