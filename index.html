@@ -353,6 +353,20 @@ footer{background:var(--darker);padding:44px 80px;display:flex;align-items:cente
   .merged-actions{flex-direction:column}
 }
 
+/* ── FORM PROGRESS BAR ────────────────────────────────── */
+.form-progress{margin-bottom:28px}
+.form-progress-steps{display:flex;align-items:center;gap:0}
+.fp-step{display:flex;flex-direction:column;align-items:center;gap:5px;flex-shrink:0}
+.fp-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--border);background:#fff;transition:all .25s}
+.fp-label{font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--fog);transition:color .25s;white-space:nowrap}
+.fp-line{flex:1;height:2px;background:var(--border);transition:background .25s;margin-bottom:15px}
+.fp-step.fp-active .fp-dot{border-color:var(--red);background:var(--red)}
+.fp-step.fp-active .fp-label{color:var(--ink)}
+.fp-step.fp-done .fp-dot{border-color:var(--red);background:var(--red)}
+.fp-step.fp-done .fp-dot::after{content:'✓';display:block;color:#fff;font-size:7px;line-height:1;margin-top:0;text-align:center;position:relative;top:-1px;font-weight:700}
+.fp-step.fp-done .fp-label{color:var(--stone)}
+.fp-line.fp-done{background:var(--red)}
+
 /* Form fields on light background */
 .merged-form-wrap .contact-field label{color:var(--stone)}
 .merged-form-wrap .contact-field input,
@@ -827,6 +841,18 @@ footer{background:var(--darker);padding:44px 80px;display:flex;align-items:cente
       <p class="merged-form-sub">Wij komen naar u toe — geen verplichtingen, geen kosten, volledige vertrouwelijkheid.</p>
       <p style="font-size:12px;color:var(--stone);margin-bottom:20px;margin-top:-16px">Uw gegevens worden strikt vertrouwelijk behandeld. Er wordt niets gedeeld zonder uw uitdrukkelijke toestemming.</p>
 
+      <div class="form-progress" id="form-progress">
+        <div class="form-progress-steps">
+          <div class="fp-step fp-active" id="fp1"><span class="fp-dot"></span><span class="fp-label">E-mail</span></div>
+          <div class="fp-line"></div>
+          <div class="fp-step" id="fp2"><span class="fp-dot"></span><span class="fp-label">Naam</span></div>
+          <div class="fp-line"></div>
+          <div class="fp-step" id="fp3"><span class="fp-dot"></span><span class="fp-label">Telefoon</span></div>
+          <div class="fp-line"></div>
+          <div class="fp-step" id="fp4"><span class="fp-dot"></span><span class="fp-label">Versturen</span></div>
+        </div>
+      </div>
+
       <div id="form-success" style="display:none;padding:32px 0">
         <p style="font-family:var(--serif);font-size:22px;color:var(--cream);margin-bottom:6px">Bedankt, we nemen spoedig contact op.</p>
         <p style="font-size:13px;color:rgba(240,236,228,.4)">U ontvangt een bevestiging per e-mail.</p>
@@ -944,6 +970,27 @@ function formReveal(){
     showStep('step-regio');
     showStep('step-submit');
   }
+  updateProgress(email, voornaam, achternaam);
+}
+
+function updateProgress(email, voornaam, achternaam){
+  const s1=document.getElementById('fp1'),l1=s1.nextElementSibling;
+  const s2=document.getElementById('fp2'),l2=s2.nextElementSibling;
+  const s3=document.getElementById('fp3'),l3=s3.nextElementSibling;
+  const s4=document.getElementById('fp4');
+
+  const step = email && voornaam && achternaam ? 4
+             : email && voornaam ? 3
+             : email ? 2 : 1;
+
+  [s1,s2,s3,s4].forEach(s=>s.classList.remove('fp-active','fp-done'));
+  [l1,l2,l3].forEach(l=>l.classList.remove('fp-done'));
+
+  for(let i=1;i<step;i++){
+    document.getElementById('fp'+i).classList.add('fp-done');
+    if(i<4) document.getElementById('fp'+i).nextElementSibling.classList.add('fp-done');
+  }
+  document.getElementById('fp'+step).classList.add('fp-active');
 }
 
 async function submitToGF(){
