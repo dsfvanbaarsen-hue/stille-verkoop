@@ -432,47 +432,30 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 
 
 /* ── Daan trust section ──────────────────────────────────── */
-.daan-trust-section{background:var(--darker);padding:64px 80px}
-.daan-trust-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:360px 1fr;gap:60px;align-items:start}
-.daan-trust-photos{position:relative;height:360px}
-.daan-trust-photo{position:absolute;object-fit:cover;border-radius:4px}
-.daan-trust-photo-main{width:260px;height:340px;top:0;left:0;object-position:center top}
-.daan-trust-photo-accent{width:180px;height:220px;bottom:0;right:0;object-position:center top;border:4px solid var(--darker)}
-.daan-trust-name{font-family:var(--serif);font-size:clamp(28px,3vw,42px);font-weight:400;color:var(--cream);margin-bottom:4px;line-height:1.1}
-.daan-trust-role{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:20px}
-.daan-trust-text{font-size:15px;color:rgba(240,236,228,.7);line-height:1.75;margin-bottom:28px;max-width:480px}
+.daan-trust-section{background:var(--darker);padding:52px 80px}
+.daan-trust-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
+.daan-trust-photo-wrap{width:220px;flex-shrink:0}
+.daan-trust-photo-main{width:100%;height:280px;object-fit:cover;object-position:center top;border-radius:4px;display:block}
+.daan-trust-name{font-family:var(--serif);font-size:clamp(24px,2.5vw,34px);font-weight:400;color:var(--cream);margin-bottom:4px;line-height:1.1}
+.daan-trust-role{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
+.daan-trust-text{font-size:14px;color:rgba(240,236,228,.65);line-height:1.7;margin-bottom:20px;max-width:560px}
 .daan-trust-section .eyebrow{color:var(--red-lt)}
+.daan-trust-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 /* Privacy promise box */
-.privacy-promise{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:24px 28px}
-.privacy-promise-title{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:14px}
-.privacy-promise-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
-.privacy-promise-list li{font-size:13px;color:rgba(240,236,228,.75);padding-left:18px;position:relative;line-height:1.5}
-.privacy-promise-list li::before{content:'✓';position:absolute;left:0;color:var(--red);font-size:11px;font-weight:700;top:1px}
+.privacy-promise{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:18px 20px}
+.privacy-promise-title{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
+.privacy-promise-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+.privacy-promise-list li{font-size:12px;color:rgba(240,236,228,.65);padding-left:16px;position:relative;line-height:1.4}
+.privacy-promise-list li::before{content:'✓';position:absolute;left:0;color:var(--red);font-size:10px;font-weight:700;top:1px}
 /* Obj context line */
 .obj-context{font-size:11px;color:var(--stone);padding:10px 16px;background:var(--paper);margin:0;line-height:1.5;font-style:italic}
-/* Geschikt section */
-.geschikt-section{background:var(--cream);padding:80px 80px}
-.geschikt-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:900px;margin:0 auto}
-.geschikt-card{background:#fff;border:1px solid var(--border);border-radius:6px;padding:32px 36px}
-.geschikt-ja{border-top:3px solid #2e7d32}
-.geschikt-nee{border-top:3px solid var(--border)}
-.geschikt-header{display:flex;align-items:center;gap:12px;margin-bottom:20px}
-.geschikt-header h3{font-family:var(--serif);font-size:18px;font-weight:500;color:var(--ink);margin:0}
-.geschikt-icon{width:28px;height:28px;border-radius:50%;background:#2e7d32;color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:700;flex-shrink:0}
-.geschikt-icon-nee{background:var(--border)}
-.geschikt-card ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
-.geschikt-card li{font-size:13px;color:var(--stone);padding-left:16px;position:relative;line-height:1.5}
-.geschikt-card li::before{content:'—';position:absolute;left:0;color:var(--fog)}
-.geschikt-note{font-size:12px;color:var(--fog);margin-top:20px;font-style:italic;line-height:1.6}
 /* Responsive */
 @media(max-width:980px){
-  .daan-trust-section{padding:48px 24px}
-  .daan-trust-inner{grid-template-columns:1fr;gap:32px}
-  .daan-trust-photos{height:260px}
-  .daan-trust-photo-main{width:200px;height:260px}
-  .daan-trust-photo-accent{width:140px;height:170px}
-  .geschikt-section{padding:52px 24px}
-  .geschikt-grid{grid-template-columns:1fr}
+  .daan-trust-section{padding:40px 24px}
+  .daan-trust-inner{grid-template-columns:1fr;gap:24px}
+  .daan-trust-photo-wrap{width:160px}
+  .daan-trust-photo-main{height:200px}
+  .daan-trust-cols{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -564,24 +547,33 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 
 <section class="daan-trust-section">
   <div class="daan-trust-inner">
-    <div class="daan-trust-photos">
-      <img src="https://vanbaarsen.nl/wp-content/uploads/2025/02/van-baarsen-vastgoed-web-07906.jpg" alt="Daan van Baarsen" class="daan-trust-photo daan-trust-photo-main">
-      <img src="https://vanbaarsen.nl/wp-content/uploads/2025/02/van-baarsen-vastgoed-web-07972.jpg" alt="Daan van Baarsen" class="daan-trust-photo daan-trust-photo-accent">
+    <div class="daan-trust-photo-wrap">
+      <img src="https://vanbaarsen.nl/wp-content/uploads/2025/02/van-baarsen-vastgoed-web-07906.jpg" alt="Daan van Baarsen" class="daan-trust-photo-main">
     </div>
     <div class="daan-trust-content">
       <p class="eyebrow" style="margin-bottom:10px">Persoonlijk begeleid door</p>
       <h2 class="daan-trust-name"><a href="https://vanbaarsen.nl/daan-van-baarsen/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Daan van Baarsen</a></h2>
       <p class="daan-trust-role">Makelaar Beleggingsvastgoed · Van Baarsen Vastgoed</p>
-      <p class="daan-trust-text">Ik bespreek uw situatie persoonlijk — vertrouwelijk en zonder verplichtingen. Er wordt niets gedeeld zonder uw akkoord. U hoeft nog niet te verkopen; u kunt eerst discreet ontdekken wat mogelijk is.</p>
-      <div class="privacy-promise">
-        <p class="privacy-promise-title">Onze vertrouwelijkheidsbelofte</p>
-        <ul class="privacy-promise-list">
-          <li>Uw pand wordt niet openbaar aangeboden</li>
-          <li>Wij benaderen geen huurders, medewerkers of relaties</li>
-          <li>Gegevens worden niet gedeeld zonder uw schriftelijke akkoord</li>
-          <li>Serieuze kandidaten ontvangen pas details na uw toestemming</li>
-          <li>Indien gewenst werken wij met NDA</li>
-        </ul>
+      <p class="daan-trust-text">Ik bespreek uw situatie persoonlijk — vertrouwelijk en zonder verplichtingen. Er wordt niets gedeeld zonder uw akkoord.</p>
+      <div class="daan-trust-cols">
+        <div class="privacy-promise">
+          <p class="privacy-promise-title">Vertrouwelijkheidsbelofte</p>
+          <ul class="privacy-promise-list">
+            <li>Geen openbare aanbieding</li>
+            <li>Geen contact met huurders of medewerkers</li>
+            <li>Niets gedeeld zonder uw schriftelijk akkoord</li>
+            <li>NDA mogelijk voor alle geïnteresseerden</li>
+          </ul>
+        </div>
+        <div class="privacy-promise">
+          <p class="privacy-promise-title">Geschikt als u…</p>
+          <ul class="privacy-promise-list">
+            <li>een verhuurd beleggingspand bezit</li>
+            <li>geen onrust wilt bij huurders of medewerkers</li>
+            <li>discreet de markt wilt verkennen</li>
+            <li>controle wilt houden over timing</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -607,7 +599,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
     <p class="section-body fade-up">Openbare verkoop trekt prijsbewuste kopers aan, verstoort huurders en verzwakt uw onderhandelingspositie. Stille verkoop beschermt uw belangen van begin tot einde.</p>
     <div class="why-grid fade-up">
       <div class="why-card"><div class="why-rule"></div><span class="why-num">01</span><h3>Geen marktverstoring</h3><p>Huurders, medewerkers en concurrenten weten niets van de verkoop — totdat u dat wilt. Uw bedrijfsvoering loopt gewoon door.</p></div>
-      <div class="why-card"><div class="why-rule"></div><span class="why-num">02</span><h3>Gekwalificeerde kopers</h3><p>Wij benaderen uitsluitend solvabele partijen uit ons netwerk van 500+ investeerders. Geen tijdverspillers, geen onderbiedingen.</p></div>
+      <div class="why-card"><div class="why-rule"></div><span class="why-num">02</span><h3>Gekwalificeerde kopers</h3><p>Wij benaderen uitsluitend solvabele partijen uit ons netwerk van 500+ investeerders. Geen tijdverspillers.</p></div>
       <div class="why-card"><div class="why-rule"></div><span class="why-num">03</span><h3>Sterkere onderhandelingspositie</h3><p>Zonder Funda-stigma staat u sterker. In eerdere trajecten realiseerden wij regelmatig 4–8% boven de vooraf ingeschatte marktwaarde.</p></div>
       <div class="why-card"><div class="why-rule"></div><span class="why-num">04</span><h3>Uw tempo, uw timing</h3><p>U bepaalt wanneer, hoe snel en tegen welke voorwaarden. Wij richten ons proces volledig in op uw planning en fiscale wensen.</p></div>
       <div class="why-card"><div class="why-rule"></div><span class="why-num">05</span><h3>Geheimhouding geborgd</h3><p>Elke geïnteresseerde partij tekent een NDA vóór zij enige informatie ontvangen. Uw gegevens blijven te allen tijde beschermd.</p></div>
@@ -688,36 +680,6 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 </section>
 
 
-
-<section class="geschikt-section">
-  <div class="section-inner">
-    <p class="eyebrow fade-up">Voor wie is dit geschikt</p>
-    <h2 class="section-h fade-up" style="margin-bottom:40px">Eerlijk over wanneer stille verkoop werkt.</h2>
-    <div class="geschikt-grid fade-up">
-      <div class="geschikt-card geschikt-ja">
-        <div class="geschikt-header"><span class="geschikt-icon">✓</span><h3>Geschikt als u…</h3></div>
-        <ul>
-          <li>een verhuurd bedrijfs- of beleggingspand bezit</li>
-          <li>geen onrust wilt bij huurders of medewerkers</li>
-          <li>eerst discreet de markt wilt verkennen</li>
-          <li>alleen met serieuze, gekwalificeerde kopers wilt spreken</li>
-          <li>controle wilt houden over timing en voorwaarden</li>
-          <li>fiscaal voordelig wilt overdragen</li>
-        </ul>
-      </div>
-      <div class="geschikt-card geschikt-nee">
-        <div class="geschikt-header"><span class="geschikt-icon geschikt-icon-nee">×</span><h3>Minder geschikt als u…</h3></div>
-        <ul>
-          <li>maximale publieke zichtbaarheid wilt</li>
-          <li>binnen enkele dagen moet verkopen</li>
-          <li>vooral particuliere woningkopers zoekt</li>
-          <li>geen actuele huur- of objectinformatie beschikbaar heeft</li>
-        </ul>
-        <p class="geschikt-note">Twijfelt u? Neem gerust contact op — wij adviseren u eerlijk of stille verkoop bij uw situatie past.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <section class="compare-section" id="vergelijking">
