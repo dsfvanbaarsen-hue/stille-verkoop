@@ -1162,8 +1162,12 @@ async function submitToGF(){
   err.style.display='none';
 
   // Lees calculator-waarden op
-  const jaarhuur = document.getElementById('c-huur')?.value || document.getElementById('h-huur')?.value || '';
-  const waarde   = document.getElementById('c-output')?.textContent || document.getElementById('h-output')?.textContent || '';
+  const jaarhuur      = document.getElementById('c-huur')?.value || document.getElementById('h-huur')?.value || '';
+  const waarde        = document.getElementById('c-output')?.textContent || document.getElementById('h-output')?.textContent || '';
+  const typeEl        = document.getElementById('c-type') || document.getElementById('h-type');
+  const typeVastgoed  = typeEl?.options[typeEl.selectedIndex]?.text || typeEl?.value || '';
+  const locatieEl     = document.getElementById('c-regio');
+  const locatie       = locatieEl?.options[locatieEl.selectedIndex]?.text || locatieEl?.value || '';
 
   btn.textContent = 'Verzenden...';
   btn.disabled = true;
@@ -1171,6 +1175,8 @@ async function submitToGF(){
   const body = new URLSearchParams({
     voornaam, tussenvoegsel, achternaam, tel, email, regio,
     jaarhuur: '€ ' + Number(jaarhuur).toLocaleString('nl'),
+    type_vastgoed: typeVastgoed,
+    locatie,
     waarde
   });
 
