@@ -79,7 +79,7 @@ h1 em{font-style:italic;color:rgba(240,236,228,.65)}
 .tbp-cta{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--red);text-decoration:none;white-space:nowrap;transition:color .2s}
 .tbp-cta:hover{color:var(--red-lt)}
 @media(max-width:700px){.trust-bar-personal-inner{padding:16px 24px;flex-direction:column;align-items:flex-start;gap:12px}.tbp-left{flex-direction:column;align-items:flex-start;gap:4px}}
-.proof-bar{background:var(--ink);padding:20px 80px;display:flex;align-items:center;gap:32px;overflow:hidden}
+.proof-bar{background:var(--darker);padding:20px 80px;display:flex;align-items:center;gap:32px;overflow:hidden;border-top:1px solid rgba(255,255,255,.05)}
 .proof-label{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(240,236,228,.3);white-space:nowrap}
 .proof-divider{width:1px;height:20px;background:rgba(255,255,255,.1);flex-shrink:0}
 .proof-items{display:flex;gap:36px;flex-wrap:wrap;align-items:center;flex:1}
@@ -432,10 +432,10 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 
 
 /* ── Daan trust section ──────────────────────────────────── */
-.daan-trust-section{background:var(--darker);padding:52px 80px}
-.daan-trust-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
-.daan-trust-photo-wrap{width:220px;flex-shrink:0}
-.daan-trust-photo-main{width:100%;height:280px;object-fit:cover;object-position:center top;border-radius:4px;display:block}
+.daan-trust-section{background:var(--darker);padding:0 80px 52px;margin-top:-120px;position:relative;z-index:2}
+.daan-trust-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start;padding-top:48px}
+.daan-trust-photo-wrap{width:220px;flex-shrink:0;overflow:visible}
+.daan-trust-photo-main{width:100%;height:360px;object-fit:cover;object-position:center top;border-radius:4px;display:block;margin-top:-60px}
 .daan-trust-name{font-family:var(--serif);font-size:clamp(24px,2.5vw,34px);font-weight:400;color:var(--cream);margin-bottom:4px;line-height:1.1}
 .daan-trust-role{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
 .daan-trust-text{font-size:14px;color:rgba(240,236,228,.65);line-height:1.7;margin-bottom:20px;max-width:560px}
