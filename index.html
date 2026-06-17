@@ -160,8 +160,8 @@ tr:last-child td{border:none}
 .calc-field select:focus,.calc-field input:focus{border-color:var(--red)}
 .calc-full{grid-column:1/-1}
 .range-display{font-family:var(--serif);font-size:26px;font-weight:400;color:var(--ink);margin-bottom:8px}
-input[type=range]{width:100%;height:2px;-webkit-appearance:none;appearance:none;background:linear-gradient(to right,var(--red) var(--pct,7%),var(--border) var(--pct,7%));border-radius:2px;outline:none;margin-top:4px;cursor:pointer}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;background:var(--red);border-radius:50%;cursor:pointer;border:3px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.18)}
+input[type=range]{width:100%;height:4px;-webkit-appearance:none;appearance:none;background:linear-gradient(to right,var(--red) var(--pct,7%),var(--border) var(--pct,7%));border-radius:4px;outline:none;margin-top:4px;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;background:#fff;border-radius:50%;cursor:pointer;border:2px solid var(--border);box-shadow:0 1px 6px rgba(0,0,0,.15)}
 .calc-result{background:var(--darker);padding:40px 48px;display:block}
 .result-row{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;margin-bottom:28px}
 .result-tag{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--red);margin-bottom:10px}
@@ -409,17 +409,17 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 
 /* ── STEPPER SLIDER ───────────────────────────────────── */
 .stepper-row{display:flex;align-items:stretch;gap:0;margin-bottom:12px}
-.stepper-btn{width:52px;background:var(--cream);border:1px solid var(--border);color:var(--ink);font-size:22px;font-weight:300;cursor:pointer;transition:background .15s;flex-shrink:0;border-radius:var(--r)}
+.stepper-btn{width:60px;min-height:64px;background:var(--cream);border:1px solid var(--border);color:var(--ink);font-size:26px;font-weight:300;cursor:pointer;transition:background .15s;flex-shrink:0;border-radius:var(--r)}
 .stepper-btn:first-child{border-radius:var(--r) 0 0 var(--r);border-right:none}
 .stepper-btn:last-child{border-radius:0 var(--r) var(--r) 0;border-left:none}
 .stepper-btn:hover{background:var(--paper)}
 .stepper-btn:active{background:var(--border)}
-.stepper-display{flex:1;background:#fff;border:1px solid var(--border);padding:12px 10px;font-family:var(--serif);font-size:24px;font-weight:400;color:var(--ink);text-align:center;line-height:1}
+.stepper-display{flex:1;background:#fff;border:1px solid var(--border);padding:14px 10px;font-family:var(--serif);font-size:32px;font-weight:400;color:var(--ink);text-align:center;line-height:1}
 .stepper-hint{font-size:12px;color:var(--fog);margin-bottom:8px}
 .stepper-minmax{display:flex;justify-content:space-between;font-size:11px;color:var(--fog);margin-top:6px}
 /* Override range slider for hero form (light bg) */
-.hero-form input[type=range],.calc-body input[type=range]{height:2px;margin-top:0}
-.hero-form input[type=range]::-webkit-slider-thumb,.calc-body input[type=range]::-webkit-slider-thumb{width:24px;height:24px;box-shadow:0 2px 8px rgba(0,0,0,.15)}
+.hero-form input[type=range],.calc-body input[type=range]{height:4px;margin-top:0}
+.hero-form input[type=range]::-webkit-slider-thumb,.calc-body input[type=range]::-webkit-slider-thumb{width:24px;height:24px;background:#fff;border:2px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.12)}
 </style>
 </head>
 <body>
