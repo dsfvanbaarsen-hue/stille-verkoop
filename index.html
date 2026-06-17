@@ -28,7 +28,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);font-size:
 
 /* ── NAV ──────────────────────────────────────────────── */
 nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px solid rgba(255,255,255,.07)}
-.nav-inner{max-width:1240px;margin:0 auto;padding:0 40px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.nav-inner{max-width:1140px;margin:0 auto;padding:0 40px;height:72px;display:flex;align-items:center;justify-content:space-between;gap:24px}
 .logo-img{height:44px;width:auto;display:block}
 .nav-links{display:flex;gap:36px;list-style:none}
 .nav-links a{font-size:12px;font-weight:500;color:rgba(240,236,228,.55);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
@@ -414,12 +414,12 @@ footer{background:var(--darker);padding:44px 80px;display:flex;align-items:cente
 
 <nav>
   <div class="nav-inner">
-    <img src="/logo-licht.svg" alt="Van Baarsen Vastgoed" class="logo-img">
-    <ul class="nav-links">
-      <li><a href="https://vanbaarsen.nl/over-ons/" target="_blank" rel="noopener">Over ons</a></li>
-    </ul>
+    <div style="display:flex;align-items:center;gap:36px">
+      <img src="/logo-licht.svg" alt="Van Baarsen Vastgoed" class="logo-img">
+      <a href="https://vanbaarsen.nl/over-ons/" target="_blank" rel="noopener" class="nav-links" style="list-style:none;font-size:12px;font-weight:500;color:rgba(240,236,228,.55);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s" onmouseover="this.style.color='var(--cream)'" onmouseout="this.style.color='rgba(240,236,228,.55)'">Over ons</a>
+    </div>
     <div style="display:flex;gap:10px;align-items:center">
-      <button class="nav-btn" style="background:transparent;border:1px solid rgba(255,255,255,.18);color:rgba(240,236,228,.7)" onclick="document.getElementById('hero-calc').scrollIntoView({behavior:'smooth'})">Bereken waarde</button>
+      <button class="nav-btn" style="background:transparent;border:1px solid rgba(255,255,255,.18);color:rgba(240,236,228,.7)" onclick="document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">Bereken waarde</button>
       <button class="nav-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Ontvang voorstel op maat →</button>
     </div>
   </div>
