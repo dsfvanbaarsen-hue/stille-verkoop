@@ -776,7 +776,30 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
         </div>
         <input type="range" id="c-huur" min="0" max="1000000" step="2500" value="69000" oninput="syncHuur('c')">
         <div class="stepper-minmax" style="margin-top:6px"><span>€ 0</span><span>€ 1.000.000</span></div>
-        <div class="calc-card-divider"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px">
+          <div>
+            <p style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-bottom:6px">Type vastgoed</p>
+            <select id="c-type" onchange="calcRun()" style="width:100%;background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;font-family:var(--sans);font-size:13px;color:var(--ink);outline:none;-webkit-appearance:none;appearance:none;cursor:pointer">
+              <option value="">— alle types —</option>
+              <option value="kantoor">Kantoor</option>
+              <option value="bedrijfs">Bedrijfsruimte / loods</option>
+              <option value="retail">Retailpand / winkel</option>
+              <option value="gemengd">Gemengd gebruik</option>
+              <option value="wonen">Wonen</option>
+            </select>
+          </div>
+          <div>
+            <p style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-bottom:6px">Locatie</p>
+            <select id="c-regio" onchange="calcRun()" style="width:100%;background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;font-family:var(--sans);font-size:13px;color:var(--ink);outline:none;-webkit-appearance:none;appearance:none;cursor:pointer">
+              <option value="">— kies regio —</option>
+              <option value="a">A-locatie (Randstad kern)</option>
+              <option value="b">B-locatie (grote stad)</option>
+              <option value="c">C-locatie (middelgrote stad)</option>
+              <option value="d">D-locatie (kleine kern)</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-card-divider" style="margin-top:20px"></div>
         <div class="calc-card-result-row">
           <div>
             <p class="calc-card-result-label">Indicatieve marktwaarde</p>
