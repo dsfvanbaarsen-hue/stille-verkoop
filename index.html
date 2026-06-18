@@ -1113,7 +1113,7 @@ function calcRun(){
   const low=Math.round(huur*10.8*f/10000)*10000;
   const high=Math.round(huur*13.8*f/10000)*10000;
   document.getElementById('c-output').textContent=fmtEuro(low)+' – '+fmtEuro(high);
-  document.getElementById('c-note').textContent='Indicatieve verkoopwaarde op basis van uw opgegeven jaarhuur';
+  const cn=document.getElementById('c-note');if(cn)cn.textContent='Indicatieve verkoopwaarde op basis van uw opgegeven jaarhuur';
 }
 function toggleFaq(btn){
   const isOpen=btn.classList.contains('open');
