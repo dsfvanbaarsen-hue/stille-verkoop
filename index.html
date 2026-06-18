@@ -614,7 +614,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 
     <div class="field" style="margin-bottom:13px">
       <label>Type vastgoed</label>
-      <select id="h-type" onchange="heroCalc()">
+      <select id="h-type" onchange="calcInteracted=true;heroCalc()">
         <option value="">— alle types —</option>
         <option value="kantoor">Kantoor</option>
         <option value="bedrijfs" selected>Bedrijfsruimte / loods</option>
@@ -856,7 +856,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px">
           <div>
             <p style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-bottom:6px">Type vastgoed</p>
-            <select id="c-type" onchange="calcRun()" style="width:100%;background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;font-family:var(--sans);font-size:13px;color:var(--ink);outline:none;-webkit-appearance:none;appearance:none;cursor:pointer">
+            <select id="c-type" onchange="calcInteracted=true;calcRun()" style="width:100%;background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;font-family:var(--sans);font-size:13px;color:var(--ink);outline:none;-webkit-appearance:none;appearance:none;cursor:pointer">
               <option value="">— alle types —</option>
               <option value="kantoor">Kantoor</option>
               <option value="bedrijfs">Bedrijfsruimte / loods</option>
@@ -867,7 +867,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
           </div>
           <div>
             <p style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--stone);margin-bottom:6px">Locatie</p>
-            <select id="c-regio" onchange="calcRun()" style="width:100%;background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;font-family:var(--sans);font-size:13px;color:var(--ink);outline:none;-webkit-appearance:none;appearance:none;cursor:pointer">
+            <select id="c-regio" onchange="calcInteracted=true;calcRun()" style="width:100%;background:var(--cream);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;font-family:var(--sans);font-size:13px;color:var(--ink);outline:none;-webkit-appearance:none;appearance:none;cursor:pointer">
               <option value="">— kies regio —</option>
               <option value="a">A-locatie (Randstad kern)</option>
               <option value="b">B-locatie (grote stad)</option>
@@ -1273,7 +1273,7 @@ function updateCalcSummary(huur,low,high){
   document.getElementById('cs-huur').textContent='€ '+huur.toLocaleString('nl');
   document.getElementById('cs-output').textContent=fmtEuro(low)+' – '+fmtEuro(high);
 }
-function heroCalc(){calcInteracted=true;
+function heroCalc(){
   const huur=parseInt(document.getElementById('h-huur').value);
   const type=document.getElementById('h-type').value;
   const f=typeFactor[type]||1;
@@ -1283,7 +1283,7 @@ function heroCalc(){calcInteracted=true;
   updateCalcSummary(huur,low,high);
 }
 const locatieFactor={a:1.1,b:1.05,c:1.0,d:0.9};
-function calcRun(){calcInteracted=true;
+function calcRun(){
   const huur=parseInt(document.getElementById('c-huur').value);
   const type=(document.getElementById('c-type')||{value:''}).value;
   const regio=(document.getElementById('c-regio')||{value:''}).value;
