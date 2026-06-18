@@ -230,18 +230,20 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:36px;heigh
 .obj-meta-label{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fog);margin-bottom:3px}
 .obj-meta-val{font-size:12px;font-weight:600;color:var(--red)}
 .objects-note{text-align:center;margin-top:32px;font-size:12px;color:var(--fog)}
-.obj-slider-wrap{position:relative;margin:0 -80px}
-.obj-slider{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 80px 32px 80px;scrollbar-width:none;overflow-y:visible}
+.obj-slider-wrap{position:relative;overflow:hidden}
+.obj-slider{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 60px 32px 0;scrollbar-width:none;overflow-y:visible}
 .obj-slider::-webkit-scrollbar{display:none}
 .obj-slide{flex:0 0 380px;scroll-snap-align:start;text-decoration:none}
 .obj-slide .obj-badge-wrap{min-height:340px}
 .obj-nav{display:flex;gap:10px;justify-content:center;margin-top:4px}
 .obj-nav-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--ink);transition:all .2s;line-height:1}
 .obj-nav-btn:hover{background:var(--red);border-color:var(--red);color:#fff}
+@media(max-width:860px){
+  .objects-section{grid-template-columns:1fr!important;padding-left:24px!important}
+  .objects-section>div:first-child{position:static;padding-right:0;margin-bottom:28px}
+}
 @media(max-width:700px){
-  .obj-slider-wrap{margin:0 -24px}
-  .obj-slider-wrap::after{width:60px}
-  .obj-slider{padding:0 24px 20px}
+  .obj-slider{padding:0 24px 20px 0}
   .obj-slide{flex:0 0 300px}
   .obj-slide .obj-badge-wrap{min-height:260px}
 }
@@ -699,14 +701,18 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
   </div>
 </section>
 
-<section class="objects-section">
-  <div class="objects-header">
-    <p class="eyebrow">Aanbod &amp; transacties</p>
-    <h2 class="section-h" style="font-family:var(--serif);font-size:clamp(26px,3vw,40px);font-weight:400;margin-bottom:12px">Voorbeelden van aanbiedingen</h2>
-    <p style="font-size:15px;color:var(--stone);max-width:560px;margin:0 auto">Actief aanbod en recent begeleide transacties — volledig off-market. Op aanvraag delen wij passende referenties.</p>
+<section class="objects-section" style="display:grid;grid-template-columns:280px 1fr;gap:0;align-items:start;padding-left:80px;padding-right:0">
+  <div style="padding-right:40px;padding-top:8px;position:sticky;top:100px">
+    <p class="eyebrow" style="margin-bottom:16px">Aanbod &amp; transacties</p>
+    <h2 style="font-family:var(--serif);font-size:clamp(24px,2.4vw,36px);font-weight:400;line-height:1.12;color:var(--ink);margin-bottom:16px">Voorbeelden van aanbiedingen</h2>
+    <p style="font-size:14px;color:var(--stone);line-height:1.7;margin-bottom:32px">Actief aanbod en recent begeleide transacties — volledig off-market.</p>
+    <div class="obj-nav" style="justify-content:flex-start">
+      <button class="obj-nav-btn" onclick="document.getElementById('obj-slider').scrollBy({left:-404,behavior:'smooth'})">←</button>
+      <button class="obj-nav-btn" onclick="document.getElementById('obj-slider').scrollBy({left:404,behavior:'smooth'})">→</button>
+    </div>
   </div>
 
-  <div class="obj-slider-wrap">
+  <div class="obj-slider-wrap" style="margin:0">
     <div class="obj-slider" id="obj-slider">
 
       <a href="https://vanbaarsen.nl/denhoek/" target="_blank" rel="noopener" class="obj-card obj-slide">
@@ -801,11 +807,6 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 
     </div><!-- /obj-slider -->
   </div><!-- /obj-slider-wrap -->
-  <div class="obj-nav">
-    <button class="obj-nav-btn" onclick="document.getElementById('obj-slider').scrollBy({left:-404,behavior:'smooth'})">←</button>
-    <button class="obj-nav-btn" onclick="document.getElementById('obj-slider').scrollBy({left:404,behavior:'smooth'})">→</button>
-  </div>
-  <p class="objects-note">Alle transacties volledig off-market begeleid. Op aanvraag delen wij passende referenties na kennismaking.</p>
 </section>
 
 
