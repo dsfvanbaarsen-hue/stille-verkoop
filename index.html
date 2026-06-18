@@ -1125,17 +1125,17 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 
     <!-- RIGHT: FORM -->
     <div class="merged-form-wrap">
-      <div id="calc-summary" style="display:none;background:var(--darker);border-radius:4px;padding:16px 20px;margin-bottom:24px;display:none">
-        <p style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,236,228,.35);margin-bottom:10px">Uw berekening</p>
+      <div id="calc-summary" style="display:none;background:var(--paper);border:1px solid var(--border);border-radius:4px;padding:20px 24px;margin-bottom:28px">
+        <p style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--fog);margin-bottom:14px">Uw berekening</p>
         <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
           <div>
-            <p style="font-size:11px;color:rgba(240,236,228,.4);margin-bottom:2px">Jaarhuur</p>
-            <p id="cs-huur" style="font-family:var(--serif);font-size:18px;color:var(--cream)">—</p>
+            <p style="font-size:11px;color:var(--stone);margin-bottom:4px">Jaarhuur</p>
+            <p id="cs-huur" style="font-family:var(--serif);font-size:24px;font-weight:400;color:var(--ink)">—</p>
           </div>
-          <svg width="16" height="16" fill="none" stroke="rgba(240,236,228,.2)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <svg width="18" height="18" fill="none" stroke="var(--border)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           <div style="text-align:right">
-            <p style="font-size:11px;color:rgba(240,236,228,.4);margin-bottom:2px">Indicatieve waarde</p>
-            <p id="cs-output" style="font-family:var(--serif);font-size:18px;color:var(--red-lt)">—</p>
+            <p style="font-size:11px;color:var(--stone);margin-bottom:4px">Indicatieve waarde</p>
+            <p id="cs-output" style="font-family:var(--serif);font-size:24px;font-weight:400;color:var(--red)">—</p>
           </div>
         </div>
       </div>
@@ -1233,7 +1233,7 @@ function fillSlider(el){
   if(!s){s=document.createElement('style');s.id=sid;document.head.appendChild(s);}
   s.textContent = '#'+el.id+'::-webkit-slider-runnable-track{background:linear-gradient(to right,#B8976A '+p+',#E8DDD0 '+p+')}';
 }
-function syncHuur(prefix){
+function syncHuur(prefix){calcInteracted=true;
   const el = document.getElementById(prefix+'-huur');
   const val = parseInt(el.value);
   document.getElementById(prefix+'-huur-disp').textContent = fmtHuur(val);
@@ -1266,14 +1266,15 @@ function fmtEuro(n){
   return'€ '+Math.round(n/1000).toLocaleString('nl')+'K'
 }
 const typeFactor={kantoor:0.9,bedrijfs:1,retail:0.9,gemengd:1.1,wonen:1.2};
+let calcInteracted=false;
 function updateCalcSummary(huur,low,high){
   const s=document.getElementById('calc-summary');
-  if(!s)return;
+  if(!s||!calcInteracted)return;
   s.style.display='block';
   document.getElementById('cs-huur').textContent='€ '+huur.toLocaleString('nl');
   document.getElementById('cs-output').textContent=fmtEuro(low)+' – '+fmtEuro(high);
 }
-function heroCalc(){
+function heroCalc(){calcInteracted=true;
   const huur=parseInt(document.getElementById('h-huur').value);
   const type=document.getElementById('h-type').value;
   const f=typeFactor[type]||1;
@@ -1283,7 +1284,7 @@ function heroCalc(){
   updateCalcSummary(huur,low,high);
 }
 const locatieFactor={a:1.1,b:1.05,c:1.0,d:0.9};
-function calcRun(){
+function calcRun(){calcInteracted=true;
   const huur=parseInt(document.getElementById('c-huur').value);
   const type=(document.getElementById('c-type')||{value:''}).value;
   const regio=(document.getElementById('c-regio')||{value:''}).value;
