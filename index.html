@@ -462,19 +462,19 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 
 /* ── About / Daan stats section ──────────────────────────── */
 .about-section{background:var(--dark);padding:0 0 0 0;overflow:hidden}
-.about-inner{display:grid;grid-template-columns:340px 1fr 1fr;min-height:480px}
+.about-inner{display:grid;grid-template-columns:260px 1fr 1fr;min-height:300px}
 .about-photo{position:relative;overflow:hidden}
 .about-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(8%)}
 .about-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,var(--dark) 100%)}
-.about-text{padding:72px 48px 72px 56px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,.07)}
+.about-text{padding:44px 48px 44px 56px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,.07)}
 .about-eyebrow{display:flex;align-items:center;gap:10px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:24px}
 .about-eyebrow::before{content:'';width:20px;height:1px;background:var(--red)}
 .about-h2{font-family:var(--serif);font-size:clamp(26px,2.8vw,40px);font-weight:400;color:var(--cream);line-height:1.12;margin-bottom:18px}
 .about-body{font-size:14px;font-weight:300;color:rgba(240,236,228,.45);line-height:1.8;margin-bottom:28px}
 .about-link{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--red);text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:gap .2s}
 .about-link:hover{gap:14px}
-.about-stats{padding:72px 48px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07);align-content:start}
-.about-stat-box{background:var(--dark);padding:32px 28px;display:flex;flex-direction:column;gap:6px}
+.about-stats{padding:44px 48px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07);align-content:start}
+.about-stat-box{background:var(--dark);padding:20px 24px;display:flex;flex-direction:column;gap:4px}
 .about-stat-icon{font-size:14px;color:var(--red);margin-bottom:4px}
 .about-stat-big{font-family:var(--serif);font-size:clamp(28px,3vw,42px);font-weight:400;color:var(--cream);line-height:1}
 .about-stat-big sup{font-size:.55em;color:var(--red)}
@@ -544,20 +544,14 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 
 <section class="hero">
   <div class="hero-left">
-    <div class="badge"><span class="badge-dot"></span>Discreet · Off-market · Beleggingsvastgoed</div>
-    <h1>Stille verkoop<br><em>van beleggings&shy;vastgoed.</em></h1>
-    <p style="font-size:17px;color:rgba(240,236,228,.6);margin-bottom:20px;line-height:1.5;max-width:420px">Discreet uw vastgoed verkopen — zonder openbare advertentie, zonder onrust bij huurders.</p>
-    <div class="hero-pills">
-      <span class="hero-pill"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20 7L9 18l-5-5"/></svg>Geen openbare advertentie</span>
-      <span class="hero-pill"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20 7L9 18l-5-5"/></svg>Actief kopersnetwerk 500+</span>
-      
-      <span class="hero-pill"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M20 7L9 18l-5-5"/></svg>Meerdere biedingen voor de hoogste opbrengst</span>
-    </div>
-    <div class="hero-stats">
-      <div><span class="stat-n">30M<span>+</span></span><span class="stat-l">Actuele beheerportefeuille</span></div>
-      <div><span class="stat-n">1986</span><span class="stat-l">Familiebedrijf sinds</span></div>
-      <div><span class="stat-n">4,8<span>/5</span></span><span class="stat-l">Google rating · 80+ reviews</span></div>
-    </div>
+    <div class="badge"><span class="badge-dot"></span>Discreet verkopen</div>
+    <h1>Uw vastgoed,<br><em>discreet verkocht.</em></h1>
+    <p style="font-size:17px;color:rgba(240,236,228,.6);margin-bottom:32px;line-height:1.65;max-width:440px">Wij verkopen verhuurd beleggingsvastgoed buiten de openbaarheid — via een actief kopersnetwerk, met u volledig in regie.</p>
+    <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px">
+      <li style="display:flex;align-items:center;gap:12px;font-size:15px;color:rgba(240,236,228,.8)"><svg width="16" height="16" fill="none" stroke="var(--red)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 7L9 18l-5-5"/></svg>Geen openbare advertentie — volledig vertrouwelijk</li>
+      <li style="display:flex;align-items:center;gap:12px;font-size:15px;color:rgba(240,236,228,.8)"><svg width="16" height="16" fill="none" stroke="var(--red)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 7L9 18l-5-5"/></svg>Actief kopersnetwerk van 500+ investeerders</li>
+      <li style="display:flex;align-items:center;gap:12px;font-size:15px;color:rgba(240,236,228,.8)"><svg width="16" height="16" fill="none" stroke="var(--red)" stroke-width="2.5" viewBox="0 0 24 24"><path d="M20 7L9 18l-5-5"/></svg>Meerdere biedingen voor de hoogste opbrengst</li>
+    </ul>
   </div>
 
   <div class="hero-form" id="hero-calc">
