@@ -1125,6 +1125,20 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 
     <!-- RIGHT: FORM -->
     <div class="merged-form-wrap">
+      <div id="calc-summary" style="display:none;background:var(--darker);border-radius:4px;padding:16px 20px;margin-bottom:24px;display:none">
+        <p style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(240,236,228,.35);margin-bottom:10px">Uw berekening</p>
+        <div style="display:flex;justify-content:space-between;align-items:center;gap:16px">
+          <div>
+            <p style="font-size:11px;color:rgba(240,236,228,.4);margin-bottom:2px">Jaarhuur</p>
+            <p id="cs-huur" style="font-family:var(--serif);font-size:18px;color:var(--cream)">—</p>
+          </div>
+          <svg width="16" height="16" fill="none" stroke="rgba(240,236,228,.2)" stroke-width="1.5" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          <div style="text-align:right">
+            <p style="font-size:11px;color:rgba(240,236,228,.4);margin-bottom:2px">Indicatieve waarde</p>
+            <p id="cs-output" style="font-family:var(--serif);font-size:18px;color:var(--red-lt)">—</p>
+          </div>
+        </div>
+      </div>
       <p class="merged-eyebrow" style="color:var(--red)">Vrijblijvende waardebepaling</p>
       <h2 class="merged-form-title">Ontdek wat uw pand<br>discreet kan opbrengen.</h2>
       <p class="merged-form-sub">Wij komen naar u toe — geen verplichtingen, geen kosten, volledige vertrouwelijkheid.</p>
@@ -1252,6 +1266,13 @@ function fmtEuro(n){
   return'€ '+Math.round(n/1000).toLocaleString('nl')+'K'
 }
 const typeFactor={kantoor:0.9,bedrijfs:1,retail:0.9,gemengd:1.1,wonen:1.2};
+function updateCalcSummary(huur,low,high){
+  const s=document.getElementById('calc-summary');
+  if(!s)return;
+  s.style.display='block';
+  document.getElementById('cs-huur').textContent='€ '+huur.toLocaleString('nl');
+  document.getElementById('cs-output').textContent=fmtEuro(low)+' – '+fmtEuro(high);
+}
 function heroCalc(){
   const huur=parseInt(document.getElementById('h-huur').value);
   const type=document.getElementById('h-type').value;
@@ -1259,6 +1280,7 @@ function heroCalc(){
   const low=Math.round(huur*10.8*f/10000)*10000;
   const high=Math.round(huur*13.8*f/10000)*10000;
   document.getElementById('h-output').textContent=fmtEuro(low)+' – '+fmtEuro(high);
+  updateCalcSummary(huur,low,high);
 }
 const locatieFactor={a:1.1,b:1.05,c:1.0,d:0.9};
 function calcRun(){
@@ -1270,6 +1292,7 @@ function calcRun(){
   const high=Math.round(huur*13.8*f/10000)*10000;
   document.getElementById('c-output').textContent=fmtEuro(low)+' – '+fmtEuro(high);
   const cn=document.getElementById('c-note');if(cn)cn.textContent='Indicatieve verkoopwaarde op basis van uw opgegeven jaarhuur';
+  updateCalcSummary(huur,low,high);
 }
 function toggleFaq(btn){
   const isOpen=btn.classList.contains('open');
