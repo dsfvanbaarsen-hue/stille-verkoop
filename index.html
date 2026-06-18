@@ -406,6 +406,9 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
   .hero-stats{flex-wrap:wrap;gap:20px}
   .hero-left{padding:40px 20px 36px}
   .hero-form{padding:32px 20px}
+  .form-trust{display:none}
+  .obj-slider{padding:0 20px 20px 0}
+  .obj-slide{flex:0 0 82vw}
   .calc-body{padding:20px}
   .calc-result{padding:20px}
   .result-ctas{min-width:0;width:100%}
@@ -522,7 +525,8 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 }
 @media(max-width:700px){
   .about-inner{grid-template-columns:1fr}
-  .about-photo{min-height:0;max-height:220px}
+  .about-photo{min-height:0;max-height:280px}
+  .about-photo img{object-position:center 30%}
   .about-photo::after{background:linear-gradient(to bottom,transparent 50%,var(--dark) 100%)}
   .about-text{padding:36px 24px}
 }
