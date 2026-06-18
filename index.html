@@ -230,14 +230,19 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:36px;heigh
 .obj-meta-label{font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--fog);margin-bottom:3px}
 .obj-meta-val{font-size:12px;font-weight:600;color:var(--red)}
 .objects-note{text-align:center;margin-top:32px;font-size:12px;color:var(--fog)}
-.obj-slider-wrap{overflow:hidden;margin:0 -80px}
-.obj-slider{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 80px 24px;scrollbar-width:none}
+.obj-slider-wrap{overflow:hidden;margin:0 -80px;position:relative}
+.obj-slider{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 80px 32px;scrollbar-width:none}
 .obj-slider::-webkit-scrollbar{display:none}
-.obj-slide{flex:0 0 320px;scroll-snap-align:start;text-decoration:none}
+.obj-slide{flex:0 0 380px;scroll-snap-align:start;text-decoration:none}
+.obj-slide .obj-badge-wrap{min-height:340px}
+.obj-nav{display:flex;gap:10px;justify-content:center;margin-top:4px}
+.obj-nav-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--border);background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--ink);transition:all .2s;line-height:1}
+.obj-nav-btn:hover{background:var(--red);border-color:var(--red);color:#fff}
 @media(max-width:700px){
   .obj-slider-wrap{margin:0 -24px}
   .obj-slider{padding:0 24px 20px}
-  .obj-slide{flex:0 0 280px}
+  .obj-slide{flex:0 0 300px}
+  .obj-slide .obj-badge-wrap{min-height:260px}
 }
 
 /* ── MERGED CONTACT ──────────────────────────────────── */
@@ -695,16 +700,16 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 
 <section class="objects-section">
   <div class="objects-header">
-    <p class="eyebrow">Recente transacties</p>
-    <h2 class="section-h" style="font-family:var(--serif);font-size:clamp(26px,3vw,40px);font-weight:400;margin-bottom:12px">Voorbeelden van recent begeleide objecten</h2>
-    <p style="font-size:15px;color:var(--stone);max-width:560px;margin:0 auto">Alle transacties volledig off-market begeleid. Vanwege vertrouwelijkheid tonen wij geen namen of exacte adressen. <em>Op aanvraag delen wij passende referenties na kennismaking.</em></p>
+    <p class="eyebrow">Aanbod &amp; transacties</p>
+    <h2 class="section-h" style="font-family:var(--serif);font-size:clamp(26px,3vw,40px);font-weight:400;margin-bottom:12px">Voorbeelden van aanbiedingen</h2>
+    <p style="font-size:15px;color:var(--stone);max-width:560px;margin:0 auto">Actief aanbod en recent begeleide transacties — volledig off-market. Op aanvraag delen wij passende referenties.</p>
   </div>
 
   <div class="obj-slider-wrap">
     <div class="obj-slider" id="obj-slider">
 
       <a href="https://vanbaarsen.nl/denhoek/" target="_blank" rel="noopener" class="obj-card obj-slide">
-        <div class="obj-badge-wrap" style="background:linear-gradient(135deg,#1a1714 0%,#2e2a24 100%)">
+        <div class="obj-badge-wrap" style="background-image:url('https://vanbaarsen.nl/wp-content/uploads/2026/06/Scherm%C2%ADafbeelding-2026-06-18-om-12.55.01.png')">
           <p class="obj-type" style="color:#5fba7d">Gemengd gebruik</p>
           <p class="obj-label">Actief · Stille verkoop</p>
           <h3 class="obj-name">Den Hoek — 3 units, wonen + bedrijf</h3>
@@ -722,7 +727,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
       </a>
 
       <a href="https://vanbaarsen.nl/twoten/" target="_blank" rel="noopener" class="obj-card obj-slide">
-        <div class="obj-badge-wrap" style="background:linear-gradient(135deg,#1a1714 0%,#2e2a24 100%)">
+        <div class="obj-badge-wrap" style="background-image:url('https://vanbaarsen.nl/wp-content/uploads/2026/06/twoten-49ef8cd0-2a2b-4e4c-be58-fca2479a80bf.png')">
           <p class="obj-type" style="color:#5fba7d">Bedrijvencomplex</p>
           <p class="obj-label">Actief · Stille verkoop</p>
           <h3 class="obj-name">Complex TwoTen — perifere detailhandel</h3>
@@ -795,6 +800,10 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 
     </div><!-- /obj-slider -->
   </div><!-- /obj-slider-wrap -->
+  <div class="obj-nav">
+    <button class="obj-nav-btn" onclick="document.getElementById('obj-slider').scrollBy({left:-404,behavior:'smooth'})">←</button>
+    <button class="obj-nav-btn" onclick="document.getElementById('obj-slider').scrollBy({left:404,behavior:'smooth'})">→</button>
+  </div>
   <p class="objects-note">Alle transacties volledig off-market begeleid. Op aanvraag delen wij passende referenties na kennismaking.</p>
 </section>
 
