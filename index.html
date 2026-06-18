@@ -122,9 +122,18 @@ h1 em{font-style:italic;color:rgba(240,236,228,.65)}
 .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border)}
 .why-card{background:var(--cream);padding:40px 34px}
 .why-num{font-family:var(--serif);font-size:11px;font-weight:600;letter-spacing:.16em;color:var(--red);margin-bottom:18px;display:block}
+.why-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}
 .why-card h3{font-family:var(--serif);font-size:20px;font-weight:500;margin-bottom:10px;line-height:1.2}
+.why-icon{display:none;font-size:20px;font-weight:300;color:var(--red);flex-shrink:0;margin-top:2px}
 .why-card p{font-size:14px;color:var(--stone);line-height:1.8}
 .why-rule{width:28px;height:2px;background:var(--red);margin-bottom:18px}
+@media(max-width:700px){
+  .why-icon{display:block}
+  .why-body{display:none}
+  .why-card.open .why-body{display:block}
+  .why-card.open .why-icon{transform:rotate(45deg)}
+  .why-card{cursor:pointer}
+}
 
 /* ── COMPARE ──────────────────────────────────────────── */
 .compare-section{background:var(--darker);padding:100px 80px}
@@ -665,12 +674,12 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
     <h2 class="section-h fade-up">Discreet naar beter resultaat.</h2>
     <p class="section-body fade-up">Openbare verkoop trekt prijsbewuste kopers aan, verstoort huurders en verzwakt uw onderhandelingspositie. Stille verkoop beschermt uw belangen van begin tot einde.</p>
     <div class="why-grid fade-up">
-      <div class="why-card"><div class="why-rule"></div><span class="why-num">01</span><h3>Geen marktverstoring</h3><p>Huurders, medewerkers en concurrenten weten niets van de verkoop — totdat u dat wilt. Uw bedrijfsvoering loopt gewoon door.</p></div>
-      <div class="why-card"><div class="why-rule"></div><span class="why-num">02</span><h3>Gekwalificeerde kopers</h3><p>Wij benaderen uitsluitend solvabele partijen uit ons netwerk van 500+ investeerders. Geen tijdverspillers.</p></div>
-      <div class="why-card"><div class="why-rule"></div><span class="why-num">03</span><h3>Sterkere onderhandelingspositie</h3><p>Zonder Funda-stigma staat u sterker. In eerdere trajecten realiseerden wij regelmatig 4–8% boven de vooraf ingeschatte marktwaarde.</p></div>
-      <div class="why-card"><div class="why-rule"></div><span class="why-num">04</span><h3>Uw tempo, uw timing</h3><p>U bepaalt wanneer, hoe snel en tegen welke voorwaarden. Wij richten ons proces volledig in op uw planning en fiscale wensen.</p></div>
-      <div class="why-card"><div class="why-rule"></div><span class="why-num">05</span><h3>Geheimhouding geborgd</h3><p>Elke geïnteresseerde partij tekent een NDA vóór zij enige informatie ontvangen. Uw gegevens blijven te allen tijde beschermd.</p></div>
-      <div class="why-card"><div class="why-rule"></div><span class="why-num">06</span><h3>Resultaatgericht tarief</h3><p>U betaalt alleen bij een succesvolle transactie. Geen opstartkosten, geen maandelijkse fees — onze belangen zijn volledig gealigneerd.</p></div>
+      <div class="why-card" onclick="toggleWhy(this)"><div class="why-rule"></div><span class="why-num">01</span><div class="why-head"><h3>Geen marktverstoring</h3><span class="why-icon">+</span></div><p class="why-body">Huurders, medewerkers en concurrenten weten niets van de verkoop — totdat u dat wilt. Uw bedrijfsvoering loopt gewoon door.</p></div>
+      <div class="why-card" onclick="toggleWhy(this)"><div class="why-rule"></div><span class="why-num">02</span><div class="why-head"><h3>Gekwalificeerde kopers</h3><span class="why-icon">+</span></div><p class="why-body">Wij benaderen uitsluitend solvabele partijen uit ons netwerk van 500+ investeerders. Geen tijdverspillers.</p></div>
+      <div class="why-card" onclick="toggleWhy(this)"><div class="why-rule"></div><span class="why-num">03</span><div class="why-head"><h3>Sterkere onderhandelingspositie</h3><span class="why-icon">+</span></div><p class="why-body">Zonder Funda-stigma staat u sterker. In eerdere trajecten realiseerden wij regelmatig 4–8% boven de vooraf ingeschatte marktwaarde.</p></div>
+      <div class="why-card" onclick="toggleWhy(this)"><div class="why-rule"></div><span class="why-num">04</span><div class="why-head"><h3>Uw tempo, uw timing</h3><span class="why-icon">+</span></div><p class="why-body">U bepaalt wanneer, hoe snel en tegen welke voorwaarden. Wij richten ons proces volledig in op uw planning en fiscale wensen.</p></div>
+      <div class="why-card" onclick="toggleWhy(this)"><div class="why-rule"></div><span class="why-num">05</span><div class="why-head"><h3>Geheimhouding geborgd</h3><span class="why-icon">+</span></div><p class="why-body">Elke geïnteresseerde partij tekent een NDA vóór zij enige informatie ontvangen. Uw gegevens blijven te allen tijde beschermd.</p></div>
+      <div class="why-card" onclick="toggleWhy(this)"><div class="why-rule"></div><span class="why-num">06</span><div class="why-head"><h3>Resultaatgericht tarief</h3><span class="why-icon">+</span></div><p class="why-body">U betaalt alleen bij een succesvolle transactie. Geen opstartkosten, geen maandelijkse fees — onze belangen zijn volledig gealigneerd.</p></div>
     </div>
   </div>
 </section>
@@ -1309,6 +1318,7 @@ function toggleStep(btn){
   }
 }
 heroCalc();calcRun();fillSlider(document.getElementById("h-huur"));fillSlider(document.getElementById("c-huur"));
+function toggleWhy(card){if(window.innerWidth>700)return;card.classList.toggle('open');card.querySelector('.why-icon').textContent=card.classList.contains('open')?'×':'+'}
 const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')});},{threshold:.12});
 document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
 </script>
