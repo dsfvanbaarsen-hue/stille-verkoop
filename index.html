@@ -231,6 +231,7 @@ input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:36px;heigh
 .obj-meta-val{font-size:12px;font-weight:600;color:var(--red)}
 .objects-note{text-align:center;margin-top:32px;font-size:12px;color:var(--fog)}
 .obj-slider-wrap{position:relative;margin:0 -80px}
+.obj-slider-wrap::before{content:'';position:absolute;top:0;left:0;bottom:32px;width:120px;background:linear-gradient(to right,var(--paper) 20%,transparent 100%);pointer-events:none;z-index:1}
 .obj-slider-wrap::after{content:'';position:absolute;top:0;right:0;bottom:32px;width:120px;background:linear-gradient(to left,var(--paper) 20%,transparent 100%);pointer-events:none;z-index:1}
 .obj-slider{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding:0 80px 32px;scrollbar-width:none;overflow-y:visible}
 .obj-slider::-webkit-scrollbar{display:none}
@@ -742,7 +743,7 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
           <div class="obj-meta-item"><p class="obj-meta-label">Huurstroom</p><p class="obj-meta-val">€ 456k</p></div>
           <div class="obj-meta-item"><p class="obj-meta-label">BAR</p><p class="obj-meta-val">8,3%</p></div>
           <div class="obj-meta-item"><p class="obj-meta-label">Oppervlak</p><p class="obj-meta-val">5.890 m²</p></div>
-          <div class="obj-meta-item"><p class="obj-meta-label">Perceel</p><p class="obj-meta-val">5.385 m²</p></div>
+          <div class="obj-meta-item"><p class="obj-meta-label">Units</p><p class="obj-meta-val">5</p></div>
         </div>
       </a>
 
