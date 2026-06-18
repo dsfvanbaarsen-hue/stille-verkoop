@@ -37,7 +37,7 @@ body{font-family:var(--sans);background:var(--cream);color:var(--ink);font-size:
 /* ── HERO ─────────────────────────────────────────────── */
 .hero{background:var(--dark);min-height:92vh;display:grid;grid-template-columns:1fr 460px;gap:0;overflow:hidden;position:relative}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 70% at 15% 60%,rgba(192,57,43,.04) 0%,transparent 65%);pointer-events:none}
-.hero-left{padding:64px 72px 72px 80px;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero-left{padding:64px 72px 72px 80px;display:flex;flex-direction:column;justify-content:flex-start;position:relative}
 .hero-left::after{content:'';position:absolute;right:0;top:8%;bottom:8%;width:1px;background:linear-gradient(to bottom,transparent,rgba(192,57,43,.35),transparent)}
 .badge{display:inline-flex;align-items:center;gap:8px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red-lt);margin-bottom:40px}
 .badge-dot{width:5px;height:5px;background:var(--red);border-radius:50%;animation:pulse 2.4s ease infinite}
@@ -461,10 +461,10 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 }
 
 /* ── Daan trust section ──────────────────────────────────── */
-.daan-trust-section{background:var(--darker);padding:0 80px 52px;margin-top:-120px;position:relative;z-index:2}
-.daan-trust-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start;padding-top:48px}
+.daan-trust-section{background:var(--darker);padding:52px 80px}
+.daan-trust-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
 .daan-trust-photo-wrap{width:220px;flex-shrink:0;overflow:visible}
-.daan-trust-photo-main{width:100%;height:360px;object-fit:cover;object-position:center top;border-radius:4px;display:block;margin-top:-60px}
+.daan-trust-photo-main{width:100%;height:300px;object-fit:cover;object-position:center top;border-radius:4px;display:block}
 .daan-trust-name{font-family:var(--serif);font-size:clamp(24px,2.5vw,34px);font-weight:400;color:var(--cream);margin-bottom:4px;line-height:1.1}
 .daan-trust-role{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
 .daan-trust-text{font-size:14px;color:rgba(240,236,228,.65);line-height:1.7;margin-bottom:20px;max-width:560px}
@@ -532,15 +532,6 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
       <div><span class="stat-n">30M<span>+</span></span><span class="stat-l">Actuele beheerportefeuille</span></div>
       <div><span class="stat-n">1986</span><span class="stat-l">Familiebedrijf sinds</span></div>
       <div><span class="stat-n">4,8<span>/5</span></span><span class="stat-l">Google rating · 80+ reviews</span></div>
-    </div>
-    <div class="hero-geschikt">
-      <p class="hero-geschikt-title">Geschikt als u…</p>
-      <ul>
-        <li>een verhuurd beleggingspand bezit</li>
-        <li>geen onrust wilt bij huurders of medewerkers</li>
-        <li>discreet de markt wilt verkennen</li>
-        <li>controle wilt houden over timing</li>
-      </ul>
     </div>
   </div>
 
