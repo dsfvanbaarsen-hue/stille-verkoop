@@ -460,22 +460,41 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
   .calc-card-cta{width:100%}
 }
 
-/* ── Daan trust section ──────────────────────────────────── */
-.daan-trust-section{background:var(--darker);padding:52px 80px}
-.daan-trust-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start}
-.daan-trust-photo-wrap{width:220px;flex-shrink:0;overflow:visible}
-.daan-trust-photo-main{width:100%;height:300px;object-fit:cover;object-position:center top;border-radius:4px;display:block}
-.daan-trust-name{font-family:var(--serif);font-size:clamp(24px,2.5vw,34px);font-weight:400;color:var(--cream);margin-bottom:4px;line-height:1.1}
-.daan-trust-role{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:16px}
-.daan-trust-text{font-size:14px;color:rgba(240,236,228,.65);line-height:1.7;margin-bottom:20px;max-width:560px}
-.daan-trust-section .eyebrow{color:var(--red-lt)}
-.daan-trust-cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-/* Privacy promise box */
+/* ── About / Daan stats section ──────────────────────────── */
+.about-section{background:var(--dark);padding:0 0 0 0;overflow:hidden}
+.about-inner{display:grid;grid-template-columns:340px 1fr 1fr;min-height:480px}
+.about-photo{position:relative;overflow:hidden}
+.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;filter:grayscale(8%)}
+.about-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,var(--dark) 100%)}
+.about-text{padding:72px 48px 72px 56px;display:flex;flex-direction:column;justify-content:center;border-right:1px solid rgba(255,255,255,.07)}
+.about-eyebrow{display:flex;align-items:center;gap:10px;font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:24px}
+.about-eyebrow::before{content:'';width:20px;height:1px;background:var(--red)}
+.about-h2{font-family:var(--serif);font-size:clamp(26px,2.8vw,40px);font-weight:400;color:var(--cream);line-height:1.12;margin-bottom:18px}
+.about-body{font-size:14px;font-weight:300;color:rgba(240,236,228,.45);line-height:1.8;margin-bottom:28px}
+.about-link{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--red);text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:gap .2s}
+.about-link:hover{gap:14px}
+.about-stats{padding:72px 48px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.07);align-content:start}
+.about-stat-box{background:var(--dark);padding:32px 28px;display:flex;flex-direction:column;gap:6px}
+.about-stat-icon{font-size:14px;color:var(--red);margin-bottom:4px}
+.about-stat-big{font-family:var(--serif);font-size:clamp(28px,3vw,42px);font-weight:400;color:var(--cream);line-height:1}
+.about-stat-big sup{font-size:.55em;color:var(--red)}
+.about-stat-lbl{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,236,228,.3)}
+/* Privacy promise box (kept for legacy) */
 .privacy-promise{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:6px;padding:18px 20px}
 .privacy-promise-title{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--red);margin-bottom:12px}
 .privacy-promise-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
 .privacy-promise-list li{font-size:12px;color:rgba(240,236,228,.65);padding-left:16px;position:relative;line-height:1.4}
 .privacy-promise-list li::before{content:'✓';position:absolute;left:0;color:var(--red);font-size:10px;font-weight:700;top:1px}
+@media(max-width:1024px){
+  .about-inner{grid-template-columns:280px 1fr}
+  .about-stats{display:none}
+}
+@media(max-width:700px){
+  .about-inner{grid-template-columns:1fr}
+  .about-photo{min-height:260px}
+  .about-photo::after{background:linear-gradient(to bottom,transparent 50%,var(--dark) 100%)}
+  .about-text{padding:36px 24px}
+}
 /* Obj context line */
 .obj-context{font-size:11px;color:var(--stone);padding:10px 16px;background:var(--paper);margin:0;line-height:1.5;font-style:italic}
 /* Hero geschikt box */
@@ -499,7 +518,13 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 <nav>
   <div class="nav-inner">
     <div class="nav-left">
-      <img src="https://vanbaarsen.nl/wp-content/uploads/2026/06/logo-licht.svg" alt="Van Baarsen Vastgoed" class="logo-img">
+      <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none">
+        <div style="background:var(--red);color:#fff;font-family:var(--serif);font-size:15px;font-weight:600;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:2px">VB</div>
+        <div style="display:flex;flex-direction:column;line-height:1.1">
+          <span style="font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--cream)">Van Baarsen</span>
+          <span style="font-size:9px;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:rgba(240,236,228,.4)">Vastgoed</span>
+        </div>
+      </a>
       <a href="https://vanbaarsen.nl/over-ons/" target="_blank" rel="noopener" class="nav-over-ons">Over ons</a>
     </div>
     <div class="nav-right">
@@ -581,28 +606,38 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 
 
 
-<section class="daan-trust-section">
-  <div class="daan-trust-inner">
-    <div class="daan-trust-photo-wrap">
-      <img src="https://vanbaarsen.nl/wp-content/uploads/2025/02/van-baarsen-vastgoed-web-07906.jpg" alt="Daan van Baarsen" class="daan-trust-photo-main">
+<section class="about-section">
+  <div class="about-inner">
+    <div class="about-photo">
+      <img src="https://vanbaarsen.nl/wp-content/uploads/2025/02/van-baarsen-vastgoed-web-07906.jpg" alt="Daan van Baarsen">
     </div>
-    <div class="daan-trust-content">
-      <h2 class="daan-trust-name" style="font-size:clamp(22px,2.2vw,30px);margin-bottom:4px">Van Baarsen Vastgoed</h2>
-      <p class="daan-trust-role" style="margin-bottom:20px">Familiebedrijf met ervaring sinds 1986</p>
-      <p class="eyebrow" style="margin-bottom:6px">Persoonlijk begeleid door</p>
-      <p style="font-family:var(--serif);font-size:clamp(20px,2vw,26px);font-weight:400;color:var(--cream);margin-bottom:4px"><a href="https://vanbaarsen.nl/daan-van-baarsen/" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">Daan van Baarsen</a></p>
-      <p class="daan-trust-role" style="margin-bottom:16px">Makelaar Beleggingsvastgoed</p>
-      <p class="daan-trust-text">Ik bespreek uw situatie persoonlijk — vertrouwelijk en zonder verplichtingen.</p>
-      <div class="privacy-promise" style="max-width:420px">
-          <p class="privacy-promise-title">Vertrouwelijkheidsbelofte</p>
-          <ul class="privacy-promise-list">
-            <li>Exclusief netwerk van 500+ betrouwbare investeerders</li>
-            <li>Alleen gekwalificeerde partijen — geen tijdverspillers</li>
-            <li>Familiebedrijf met 35+ jaar ervaring in beleggingsvastgoed</li>
-            <li>Gegevens nooit gedeeld zonder uw schriftelijk akkoord</li>
-            <li>NDA verplicht voor alle geïnteresseerde partijen</li>
-          </ul>
-        </div>
+    <div class="about-text">
+      <div class="about-eyebrow">Sinds 1986</div>
+      <h2 class="about-h2">De discrete schakel tussen eigenaar en investeerder.</h2>
+      <p class="about-body">Een Nederlands familiebedrijf, gespecialiseerd in de vertrouwelijke verkoop van verhuurd beleggingsvastgoed. Persoonlijk begeleid door Daan van Baarsen.</p>
+      <a href="https://vanbaarsen.nl/over-ons/" target="_blank" rel="noopener" class="about-link">Over ons →</a>
+    </div>
+    <div class="about-stats">
+      <div class="about-stat-box">
+        <div class="about-stat-icon">★</div>
+        <div class="about-stat-big">4,8<sup>/5</sup></div>
+        <div class="about-stat-lbl">Google · 80+ reviews</div>
+      </div>
+      <div class="about-stat-box">
+        <div class="about-stat-icon">◷</div>
+        <div class="about-stat-big">38<sup>jr</sup></div>
+        <div class="about-stat-lbl">Familiebedrijf sinds 1986</div>
+      </div>
+      <div class="about-stat-box">
+        <div class="about-stat-icon">⌂</div>
+        <div class="about-stat-big">€30M<sup>+</sup></div>
+        <div class="about-stat-lbl">Vastgoed in beheer</div>
+      </div>
+      <div class="about-stat-box">
+        <div class="about-stat-icon">◉</div>
+        <div class="about-stat-big">500<sup>+</sup></div>
+        <div class="about-stat-lbl">Investeerders in netwerk</div>
+      </div>
     </div>
   </div>
 </section>
