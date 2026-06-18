@@ -1107,8 +1107,8 @@ function heroCalc(){
 const locatieFactor={a:1.1,b:1.05,c:1.0,d:0.9};
 function calcRun(){
   const huur=parseInt(document.getElementById('c-huur').value);
-  const type=document.getElementById('c-type').value;
-  const regio=document.getElementById('c-regio').value;
+  const type=(document.getElementById('c-type')||{value:''}).value;
+  const regio=(document.getElementById('c-regio')||{value:''}).value;
   const f=(typeFactor[type]||1)*(locatieFactor[regio]||1);
   const low=Math.round(huur*10.8*f/10000)*10000;
   const high=Math.round(huur*13.8*f/10000)*10000;
