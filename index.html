@@ -431,6 +431,35 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 /* Override range slider for hero form (light bg) */
 
 
+
+/* ── Calc section redesign ───────────────────────────────── */
+.calc-section{background:var(--darker);padding:100px 24px}
+.calc-inner{max-width:680px;margin:0 auto;text-align:center}
+.calc-eyebrow{display:flex;align-items:center;justify-content:center;gap:14px;font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red);margin-bottom:28px}
+.calc-eyebrow span{flex:1;max-width:60px;height:1px;background:var(--red);opacity:.5;display:block}
+.calc-h1{font-family:var(--serif);font-size:clamp(32px,5vw,58px);font-weight:400;color:var(--cream);line-height:1.1;margin-bottom:18px}
+.calc-h1 em{font-style:italic;color:var(--cream)}
+.calc-sub{font-size:16px;color:rgba(240,236,228,.5);line-height:1.6;margin-bottom:48px;max-width:480px;margin-left:auto;margin-right:auto}
+/* Card */
+.calc-card-new{background:var(--paper);border-radius:8px;padding:36px 40px;text-align:left;margin-bottom:24px}
+.calc-card-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:16px}
+.calc-card-label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--stone)}
+.calc-card-value{font-family:var(--serif);font-size:32px;font-weight:400;color:var(--ink)}
+.calc-card-divider{height:1px;background:var(--border);margin:20px 0}
+.calc-card-result-row{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.calc-card-result-label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--stone);margin-bottom:6px}
+.calc-card-result-value{font-family:var(--serif);font-size:clamp(28px,4vw,42px);font-weight:400;color:var(--red);line-height:1}
+.calc-card-cta{background:var(--red);color:#fff;font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border:none;padding:14px 24px;border-radius:var(--r);cursor:pointer;white-space:nowrap;transition:background .2s;flex-shrink:0}
+.calc-card-cta:hover{background:var(--red-lt)}
+/* Trustbar */
+.calc-trustbar{display:flex;align-items:center;justify-content:center;gap:12px;font-size:13px;color:rgba(240,236,228,.35);flex-wrap:wrap}
+.calc-trust-dot{opacity:.3}
+@media(max-width:600px){
+  .calc-card-new{padding:24px 20px}
+  .calc-card-result-row{flex-direction:column;align-items:flex-start;gap:16px}
+  .calc-card-cta{width:100%}
+}
+
 /* ── Daan trust section ──────────────────────────────────── */
 .daan-trust-section{background:var(--darker);padding:0 80px 52px;margin-top:-120px;position:relative;z-index:2}
 .daan-trust-inner{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:220px 1fr;gap:48px;align-items:start;padding-top:48px}
@@ -715,39 +744,34 @@ nav{position:sticky;top:0;z-index:200;background:var(--darker);border-bottom:1px
 <section class="calc-section" id="calculator">
   <div class="calc-inner">
     <div class="calc-header fade-up">
-      <p class="eyebrow">Waardecalculator</p>
-      <h2 class="section-h">Wat is uw pand indicatief waard?</h2>
-      <p style="font-size:15px;color:var(--stone);max-width:540px;margin:0 auto;line-height:1.8">Vul onderstaande gegevens in voor een directe modelmatige schatting. Volledig vrijblijvend — geen registratie vereist.</p>
+      <p class="calc-eyebrow"><span></span>Discreet verkopen sinds 1986<span></span></p>
+      <h2 class="calc-h1">Benieuwd wat uw pand <em>vandaag</em><br>waard is?</h2>
+      <p class="calc-sub">Reken het indicatief uit — vertrouwelijk, zonder advertentie, met u in regie.</p>
     </div>
-    <div class="calc-card fade-up">
-      <div class="calc-body">
-        <div class="calc-grid">
-          <div class="calc-field"><label>Type vastgoed</label><select id="c-type" onchange="calcRun()"><option value="">— selecteer —</option><option value="kantoor">Kantoor</option><option value="bedrijfs" selected>Bedrijfsruimte / loods</option><option value="retail">Retailpand / winkel</option><option value="gemengd">Gemengd gebruik</option><option value="wonen">Wonen</option></select></div>
-          <div class="calc-field"><label>Locatie</label><select id="c-regio" onchange="calcRun()"><option value="">— selecteer —</option><option value="a">Randstad — A-locatie</option><option value="b">Grote stad — B-locatie</option><option value="c">Middelgrote stad / regio</option><option value="d">Buiten stedelijk gebied</option></select></div>
-          <div class="calc-field calc-full">
-            <label>Jaarhuur</label>
-            <div class="stepper-row">
-              <button class="stepper-btn" onclick="stepHuur('c',-1)" aria-label="Minder">−</button>
-              <div class="stepper-display" id="c-huur-disp">€ 69.000</div>
-              <button class="stepper-btn" onclick="stepHuur('c',1)" aria-label="Meer">+</button>
-            </div>
-            <p class="stepper-hint"><span style="font-family:monospace;font-size:11px;margin-right:4px">&lt;&gt;</span>Sleep de knop om aan te passen</p>
-            <input type="range" id="c-huur" min="0" max="1000000" step="2500" value="69000"
-              oninput="syncHuur('c')">
-            <div class="stepper-minmax"><span>€ 0</span><span>€ 1.000.000</span></div>
+    <div class="calc-card-new fade-up">
+      <div class="calc-card-top">
+        <div class="calc-card-row">
+          <span class="calc-card-label">Jaarhuur</span>
+          <span class="calc-card-value" id="c-huur-disp">€ 69.000</span>
+        </div>
+        <input type="range" id="c-huur" min="0" max="1000000" step="2500" value="69000" oninput="syncHuur('c')">
+        <div class="stepper-minmax" style="margin-top:6px"><span>€ 0</span><span>€ 1.000.000</span></div>
+        <div class="calc-card-divider"></div>
+        <div class="calc-card-result-row">
+          <div>
+            <p class="calc-card-result-label">Indicatieve marktwaarde</p>
+            <div class="calc-card-result-value" id="c-output">—</div>
           </div>
+          <button class="calc-card-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Voorstel op maat →</button>
         </div>
       </div>
-      <div class="calc-result" id="c-result">
-        <div class="result-row">
-          <div><p class="result-tag">Indicatieve marktwaarde</p><div class="result-value" id="c-output">—</div><p class="result-note" id="c-note"></p></div>
-          <div class="result-ctas">
-            <button class="btn-red-sm" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Ontvang voorstel op maat →</button>
-            <button class="btn-outline-sm" onclick="window.location.href='tel:+31613233284'">06 13 23 32 84</button>
-          </div>
-        </div>
-        <p class="result-disclaimer">Dit is een modelmatige indicatie op basis van marktgemiddelden. De werkelijke waarde is afhankelijk van huurcontracten, looptijden, bouwtechnische staat, bestemmingsplan en lokale marktvraag. Van Baarsen Vastgoed voert een grondige, kosteloze waardebepaling op locatie uit — zonder enige verplichting.</p>
-      </div>
+    </div>
+    <div class="calc-trustbar fade-up">
+      <span>4,8/5 Google · 80+ reviews</span>
+      <span class="calc-trust-dot">·</span>
+      <span>Geen openbare plaatsing</span>
+      <span class="calc-trust-dot">·</span>
+      <span>Kosteloos &amp; vrijblijvend</span>
     </div>
   </div>
 </section>
